@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+    ServerName despachodepan.zaszas.net
+
+    DocumentRoot /home/deploy/despachodepan/current/public
+    RailsBaseURI /
+
+    RewriteRule ^/$ /cache/index.html [QSA]
+    RewriteRule ^([^.]+)$ /cache/$1.html [QSA]
+
+    <Directory /home/deploy/despachodepan/current/public/>
+        Options FollowSymLinks
+	Allow from all
+	AllowOverride None
+	Order allow,deny
+    </Directory>
+</VirtualHost>

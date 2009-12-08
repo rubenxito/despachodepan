@@ -1,0 +1,80 @@
+<div id="title" style="width: <%= (@card.title.length * 0.80)  %>em;">
+  <div class="tab" style="<%= border_tab @card.color.value %>" >
+    <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
+  </div>
+</div>
+
+<div id="card" style="	border: 1px solid <%= "##{@card.color.value}" %>;">
+  <div id="properties" class="card_element"
+       style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
+
+    <div id="files" style="top: <%= 237 - @card.card_files.length * 23 %>px;">
+      <% for file in @card.card_files %>
+        <div class="prop_separator">&nbsp;</div>
+        <div class="card_file">
+          <%= image_tag 'file.gif' %>
+          <div><%= link_to file.title, file.public_filename, :popup => ['_blank'], :style => "color: ##{@card.color.value};" %>	</div>
+        </div>
+      <% end -%>
+    </div>
+
+
+
+    <% for prop in @properties %>
+      <div class="prop_name"><%= prop[0] %></div><div class="prop_value"><%= prop[1] %></div>
+      <div class="prop_separator">&nbsp;</div>
+    <% end -%>
+
+  </div>
+
+
+  <div id="main_image" class="card_element">
+    <% if @card.id == 1 %>
+      <div id="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/es/" target="_blank">
+          <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/es/80x15.png" />
+        </a>
+      </div>
+    <%- end %>
+    <%= image_tag @card.main_image.public_filename unless @card.main_image.nil? %>
+  </div>
+
+
+
+  <div id="main_text"  class="card_element">
+    <div id="text_flow">
+      <%= beautify @card.text %>
+    </div>
+  </div>
+  <div id="scroll_down" class="scrollers" style="display: none"></div>
+  <div id="scroll_up" class="scrollers" style="display: none"></div>
+
+
+
+  <script type="text/javascript">
+    var first_image = <%= @card.slides.first.id %>;
+    var last_image = <%= @card.slides.last.id %>;
+    var show_image = <%= @show_image %>;
+  </script>
+  <div id="slide_image" class="card_element">
+    <% @card.slides.each_with_index do |ci, index| %>
+      <div id="slideImage<%= ci.id %>" style="display: none">
+        <%= image_tag ci.image.public_filename,
+          :alt => ci.text.strip, :size => "#{ci.image.width}x#{ci.image.height}" %>
+        <div class="slide_text">
+          <%= textilize ci.text %>
+        </div>
+        <div id="slideNumber<%= ci.id %>" style="display: none;"><%= index + 1 %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="slide_controls" class="card_element">
+    <%= link_to_function image_tag('arrowleft1.gif', :alt => 'primera'), 'Slide.goFirst()', {:id => 'btnPrev'}, :class => 'arrow' %>
+    <%= link_to_function image_tag('arrowleft2.gif', :alt => 'anterior'), 'Slide.goPrev()', {:id => 'btnPrev'}, :class => 'arrow'%>
+    &nbsp;<span id="number_control">xx</span> / <span><%= @card.slides.length %></span>&nbsp;
+    <%= link_to_function image_tag('arrowright1.gif', :alt =>'siguiente'), 'Slide.goNext()', {:id => 'btnNext'}, :class => 'arrow' %>
+    <%= link_to_function image_tag('arrowright2.gif', :alt => 'última'), 'Slide.goLast()', {:id => 'btnNext'}, :class => 'arrow'  %>
+  </div>
+
+</div>

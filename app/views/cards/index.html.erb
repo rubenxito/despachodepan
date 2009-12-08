@@ -26,7 +26,7 @@
             <%= color_example card.color.value %>
             <%= color_example card.color.high_value %>
           <% end %>
-          <%= link_to "/#{card.url}", "/#{card.url}" %>
+          <%= link_to "/#{card.url}", "/#{card.url}", :class => 'url' %>
         </td>
 
         <td><%= image_tag card.main_image.public_filename(:thumb)  unless card.main_image.nil? %></td>

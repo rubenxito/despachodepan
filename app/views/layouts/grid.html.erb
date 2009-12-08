@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <%= stylesheet_link_tag 'grid' %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+    <%= javascript_include_tag 'grid.js' %>
+    <script type="text/javascript">
+      var scrollTime = <%= @scroll_time %>
+    </script>
+    <title>l a  p a n a d e r í a : <%= content_for :title %></title>
+  </head>
+  <body>
+    <div id="central">
+      <div id="index">
+        <div class="tab">
+          <span><%= link_to 'index', indice_path %></span>
+        </div>
+      </div>
+
+      <div id="panaderia">
+        <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+      </div>
+      <%= yield %>
+
+      <div id="info" style="width: 864px; display: none;">
+        <div style="float: right; text-align: right;">
+          <a href="mailto:info@despachodepan.com">info@despachodepan.com</a>
+		+34-954419305  calle garci-fernandez 20 Bajo  41008   sevillaspain -_-</div>
+        <div>©2001/08 l a p a n a d e r i a &nbsp; s.c.</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-1584724-6");
+        pageTracker._trackPageview();
+      } catch(err) {}</script>
+
+  </body>
+</html>

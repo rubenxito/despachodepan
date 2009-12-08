@@ -2,8 +2,24 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
-  dpn: 'd e s p a c h o d e p a n '
+  lpn: 'l a  p a n a d e r í a '
   cards:
     index:
-      title: 'Un listado de... todo'
+      title: "Todas las fichas"
+
+  tags:
+    create: "Añadir categoría"
+    update: "Modificar categoría"
+    index:
+      title: "Todas las categorías"
+
+  colors:
+    index:
+      title: "Todos los colores"
+
+  layouts:
+    admin:
+      CardsController: fichas
+      ColorsController: colores
+      TagsController: categorías
       

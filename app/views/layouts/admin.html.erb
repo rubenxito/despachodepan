@@ -10,9 +10,15 @@
     <%= yield :header %>
   </head>
   <body>
+    <div id="menu">
+        <%= link_to t(:lpn), root_path, :class => 'lpn' %> >
+        <%= link_to_unless_current 'fichas', cards_path %> |
+        <%= link_to_unless_current 'colores', colors_path %> |
+        <%= link_to_unless_current 'categorías', tags_path %> |
+    </div>
     <div id="page">
       <div id="header" class="banner">
-        <%= t(:dpn) %>
+        <%= t(controller.class.to_s) %>
       </div>
       <div class="content">
         <%= yield %>

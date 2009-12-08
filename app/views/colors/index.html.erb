@@ -1,38 +1,37 @@
-
-<%= title 'Colores' %>
-
-<div id="sidebar">
-<div class="nested">
-<h3>Añadir un color</h3>
-<% form_for :color, @color, :url => {:action => 'add_color'} do |form| %>
-<%= render :partial => 'color_form', :locals => {:form => form} %>
-<%= submit_tag 'añadir color' %>
-<% end -%>
+<%= title t(:title) %>
+<br/><br/>
+<div class="columns">
+  <div class="col2">
+    <table>
+      <thead>
+        <tr><td>Nombre</td>
+          <td>Color base</td>
+          <td>Color clarito</td>
+          <td/></tr>
+      </thead>
+      <tbody>
+        <% @colors.each do |color| %>
+          <tr>
+            <td><%= color.name %></td>
+            <td><%= color_example color.value %></td>
+            <td><%= color_example color.high_value %></td>
+            <td class="actions">
+              <%= link_to 'Borrar' %>
+              <%= link_to 'Editar', edit_color_path(color) %> 
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="col2">
+    <div class="nested">
+      <h3>Añadir un color</h3>
+      <%= render 'form' %>
+    </div>
+  </div>
 </div>
-</div>
-<div class="spacer">&nbsp;</div>
 
 
-<table>
-<thead>
-<tr><td>Nombre</td>
-<td>Color base</td>
-<td>Color clarito</td>
-<td/></tr>
-</thead>
-<tbody>
-<% for color in @colors %>
-<tr><td><%= color.name %></td>
-<td><%= color_example color.value %></td>
-<td><%= color_example color.high_value %></td>
-<td>
-<%= link_to 'Editar', :action => 'editar_color', :id => color %> |
-<%= link_to 'Borrar' %>
-</td></tr>
-<% end %>
-</tbody>
-</table>
-
-<div class="spacer" style="clear: both;">&nbsp;</div>
-<br/><br/><br/>
 

@@ -1,0 +1,50 @@
+<%= title t(:title) %>
+<br/><br/>
+
+<div class="columns">
+  <div class="col2">
+    <table>
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Fichas con esa categoría</td>
+          <td>Posición</td>
+          <td>Color</td>
+          <td/></tr>
+      </thead>
+      <tbody>
+        <% @tags.each do |tag| %>
+          <tr>
+            <td><%= link_to tag.name, edit_tag_path(tag) %></td>
+            <td>
+              <% for card in tag.cards -%>
+                <%= link_to card.title, '#' %><br/>
+              <% end -%>
+            </td>
+            <td>
+              <%= tag.position %>
+              <%= link_to image_tag('move_up.png'), '#' %>
+              <%= link_to image_tag('move_down.png'), '#' %>
+            </td>
+            <td>
+              <%= color_example tag.color.value %>
+              <%= color_example tag.color.high_value %>
+            </td>
+            <td class="actions">
+              <%= (link_to 'Borrar', tag, :method => 'delete',
+                :confirm => "¡Borrar la categoría '#{tag.name}'! ¿Estás segura?") unless tag.cards.size > 0 %>
+              <%= link_to 'Editar', edit_color_path(tag) %>
+            </td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col2">
+    <div class="nested">
+      <h3>Añadir una categoría</h3>
+      <%= render 'form' %>
+    </div>
+  </div>
+
+</div>
+

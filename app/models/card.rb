@@ -1,8 +1,9 @@
 require 'date.rb'
 
 class Card < ActiveRecord::Base
+  default_scope :order => 'updated_at DESC'
 	has_many :slides, :dependent => :destroy, :order => 'pos'
-	has_many :card_files, :dependent => :destroy
+	has_many :files, :class_name => 'CardFile', :dependent => :destroy
 	belongs_to :main_image, :class_name => "Image",
 		:foreign_key => :main_image_id,  :dependent => :destroy
 	belongs_to :color

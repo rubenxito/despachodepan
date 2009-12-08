@@ -1,0 +1,20 @@
+<% form_for(@tag) do |form|  %>
+  <% form.error_messages %>
+  <p>
+    <label for="tag_name">Nombre</label>
+    <%= form.text_field :name  %>
+  </p>
+  <label>Color</label>
+  <table>
+    <% @colors.each do |color| %>
+      <tr>
+        <td><%= form.radio_button :color_id, color.id %></td>
+        <td><%= color_example color.value %></td><td><%= color_example color.high_value %></td>
+        <td><%= color.name %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p>
+    <%= submit_tag t(submit_label(@tag)) %>
+  </p>
+<% end -%>

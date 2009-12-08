@@ -6,6 +6,7 @@
 @fondo: #efefef;
 @azul: #40CAFC;
 @azulclaro: #D6F3FE;
+@azulblanco: #F6FCFE;
 @gris: #696969;
 @grisclaro: #EFEFEF;
 .round {-moz-border-radius: 0.5em;-webkit-border-radius: 0.5em;}
@@ -18,8 +19,8 @@ html {
     font-family: "Verdana", sans;
     background-color: @fondo;
 }
-a {text-decoration: none;}
-a:hover {text-decoration: underline;}
+a {text-decoration: none; color: @gris;}
+a:hover {text-decoration: underline; color: @azul;}
 
 h1 {font-size: 200%; margin-top: 0.2em;}
 h2 {
@@ -27,6 +28,11 @@ h2 {
     color: @gris; border-bottom: 2px solid @azulclaro;}
 
 /** LAYOUT **/
+#menu {width: 80%; margin: 1em auto; padding: 1em 0 0 2em;}
+#menu a:hover {text-decoration: none; color: black;}
+#menu .lpn {color: @azul;}
+#menu .lpn:hover {text-decoration: underline; color: @azul;}
+
 #page {
     width: 80%; margin: 2em auto;
     background-color: white; .round;}
@@ -40,7 +46,7 @@ h2 {
     padding: 1em;
 }
 .columns {width: 100%; overflow: hidden;}
-.col2 {float: left; width: 48%; margin: 0 2% 0 0;}
+.col2 {float: left; width: 48%; margin: 0 2% 0 0; background-color: white;}
 
 /** ELEMENTS **/
 div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
@@ -54,8 +60,21 @@ div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
 .calc {letter-spacing: 0.5em; color: @gris;}
 .calc:hover {color: black; text-decoration: none;}
 
+.color_sample {display: block; padding: 1em 5em;}
+.card_tag {padding: 0.2em 1em; .round; margin: 2px;}
+
 /** FORMS **/
-form p label {
+.nested {
+    margin: 0;
+    border: 2px solid @azulclaro; .round;
+}
+.nested h3 {
+    padding: 0.2em 1em;
+    background-color: @azulclaro;
+}
+.nested form {margin: 1em;}
+form p {margin: 5px 0;}
+form label {
     display: block; margin: 0.5em 0 0.2em 0; font-weight: bold;
 }
 form p span {font-weight: bold; }
@@ -65,15 +84,20 @@ form p input[type=text] {
 form p.info {
     display: block;
     color: @gris;}
+form p.info a {color: @azul;}
+textarea {width: 95%; padding: 2px; margin: 2px 5% 0 2px;}
 
 /** TABLE **/
-table {width: 100%;}
+table {width: 100%; .round-top; margin-bottom: 1em;
+}
 table thead {
-    padding: 0.2em 0; font-weight: bold;
+    padding: 0.2em 0; 
     background-color: @azulclaro;}
-table tr.odd {background-color: @fondo;}
-table td {padding: 0.2em 1em;}
-table td.title {width: 15em;}
-table td.title a {display: block; width: 10em; font-weight: bold;}
+table thead tr {.round-top;}
+table tr {border-bottom: 1px solid @azulclaro;}
+table td {padding: 0.4em 0em 0.3em 0.2em;}
+table td.title {width: 20em;}
+table td.title a {display: block;}
 table td a {color: black; }
 table td.actions {font-size: 80%;}
+table td.actions a {background-color: @azulblanco; float: right;}

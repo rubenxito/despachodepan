@@ -1,0 +1,20 @@
+<% form_for @color do |form| %>
+  <p class="info">Puedes usar
+    <a href="http://www.colorsontheweb.com/colorwizard.asp#wizard" target="_blank">esto</a>
+    para elegir los colores</p>
+  <p>
+    <label for="color_name">Nombre</label>
+    <%= form.text_field :name  %>
+  </p>
+  <p>
+    <label for="color_value">Color base (p. ej: CC00AA)</label>
+    <%= form.text_field :value  %>
+  </p>
+  <p>
+    <label for="color_high_value">Color clarito (p. ej: FFCACA)</label>
+    <%= form.text_field :high_value  %>
+  </p>
+  <p>
+    <%= submit_tag (@color.new_record? ? 'Añadir' : 'Guardar') %>
+  </p>
+<% end -%>

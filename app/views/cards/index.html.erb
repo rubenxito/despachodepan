@@ -27,7 +27,7 @@
 
         <td><%= image_tag card.main_image.public_filename(:thumb)  unless card.main_image.nil? %></td>
         <td><%= image_tag card.main_slide.image.public_filename(:thumb)  unless card.main_slide.nil? %><br/>
-          total: <%= card.card_images.size %> fotos
+          total: <%= card.slides.size %> fotos
         </td>
 
         <td><%= card.visible ? '' : '<b>invisible!</b><br/>' %>

@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   def edit
     @tags = Tag.all
+    @slide = Slide.new
     edit!
   end
 end

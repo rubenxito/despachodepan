@@ -1,14 +1,14 @@
 require 'date.rb'
 
 class Card < ActiveRecord::Base
-	has_many :card_images, :dependent => :destroy, :order => 'pos'
+	has_many :slides, :dependent => :destroy, :order => 'pos'
 	has_many :card_files, :dependent => :destroy
 	belongs_to :main_image, :class_name => "Image",
 		:foreign_key => :main_image_id,  :dependent => :destroy
 	belongs_to :color
 	has_and_belongs_to_many :tags
 	belongs_to :main_slide, :foreign_key => :main_slide_id,
-		:class_name => 'CardImage'
+		:class_name => 'Slide'
 	belongs_to :main_file, :foreign_key => :main_file_id,
 		:class_name => 'CardFile'
 	

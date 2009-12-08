@@ -7,7 +7,7 @@ db/*.sqlite3
 db/development.sqlite3
 public/cache/**
 .idea/
-public/files/**
+public/media/**
 db/*.yml
 
 

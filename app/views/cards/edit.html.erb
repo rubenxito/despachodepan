@@ -6,9 +6,13 @@
   <%= link_to 'Ver esta ficha en la web', @card %>
 </div>
 
-<div id="sidebar">
-  <%= render 'slides' %>
-  <%= render 'files' %>
+<div class="columns">
+  <div class="col2">
+    <%= render 'form' %>
+  </div>
+  <div class="col2">
+    <%= render 'slides' %>
+<%#= render 'files' %>
+  </div>
 </div>
-<%= render 'form' %>
 

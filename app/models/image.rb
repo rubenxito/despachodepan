@@ -1,9 +1,10 @@
 class Image < ActiveRecord::Base
   has_attachment :content_type => :image, 
-                 :storage => :file_system, 
+                 :storage => :file_system,
+                 :path_prefix => 'public/media/images',
                  :thumbnails => { :thumb => '100x100>' }
   validates_as_attachment
   
-  has_many :card_images, :dependent => :destroy
+  has_many :slides, :dependent => :destroy
   has_many :cards, :through => :card_images
 end

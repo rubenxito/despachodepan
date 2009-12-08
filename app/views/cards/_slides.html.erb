@@ -1,49 +1,48 @@
 
 <h2>Fotografías</h2>
 <div class="actions">
-	<%= link_to 'Reordenar imágenes', :action => 'reorder_images', :id => card %>
-	<div class="spacer">&nbsp;</div>
+  <%= link_to 'Reordenar imágenes', '#' %>
 </div>
 
-<table style="width: 100%;">
-<thead>
-<tr>
-<td>Imágen</td>
-<td>Comentario</td>
-<td>Posición</td>
-<td>Cuadradito</td>
-<td/>
-</tr>
-</thead>
-<tbody>
-<% for slide in card.card_images %>
-<tr>
-<td><%= image_tag slide.image.public_filename(:thumb)  unless slide.image.nil? %></td>
-<td><%= slide.text %></td>
-<td><%= slide.pos %>
-<%= link_to image_tag('move_up.png'), :action => 'move_up', :id => slide %>
-<%= link_to image_tag('move_down.png'), :action => 'move_down', :id => slide %> </td>
-<td><%= slide.date %></td>
-<td class="actions">
-<%= link_to 'Principal', :action => 'set_main_slide', :id => slide %>
-<%= link_to 'Editar', :action => 'editar_imagen', :id => slide %>
-<%=  link_to 'Borrar', {:action => 'destroy_image', :id => slide}, :method => 'post',
-	:confirm => '¿Seguro que quieres borrar esta imágen?' %>
-</td>
-</tr>
-<% end %>
-</tbody>
+<table>
+  <thead>
+    <tr>
+      <td>Imágen</td>
+      <td>Comentario</td>
+      <td>Posición</td>
+      <td>Cuadradito</td>
+      <td/>
+    </tr>
+  </thead>
+  <tbody>
+    <% @card.slides.each do |slide| %>
+      <tr>
+        <td><%= image_tag slide.image.public_filename(:thumb)  unless slide.image.nil? %></td>
+        <td><%= slide.text %></td>
+        <td><%= slide.pos %>
+          <%= link_to image_tag('move_up.png'), '#' %>
+          <%= link_to image_tag('move_down.png'), '#' %> </td>
+        <td><%= slide.date %></td>
+        <td class="actions">
+          <%= link_to 'Principal', '#' %>
+          <%= link_to 'Editar', '#' %>
+          <%=  link_to 'Borrar', '#', :method => 'delete',
+            :confirm => '¿Seguro que quieres borrar esta imágen?' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <div class="nested">
-<h3>Añadir una foto</h3>
-<% form_for :card_image, card_image, :url => {:action => 'add_image', :id => card}, :html => {:multipart => true}  do |quick| %>
-<p><label for="card_image_pohto">Foto</label><br/>
-<%= file_field_tag :photo_data  %><br/>
-</p>
-<%= render :partial => 'slide_form', :locals => {:quick => quick} %>
-<%= submit_tag 'añadir imágen' %>
-<% end %>
+  <h3>Añadir una foto</h3>
+  <% form_for [@card, @slide], :html => {:multipart => true}  do |quick| %>
+    <p>
+      <label for="card_image_pohto">Foto</label>
+      <%= file_field_tag :photo_data  %>
+    </p>
+    <%= submit_tag 'añadir imágen' %>
+  <% end %>
 </div>
 
 

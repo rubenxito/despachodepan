@@ -1,0 +1,14 @@
+<%= title "Editar ficha '#{@card.title}'" %>
+
+<div class="actions">
+  <%= link_to_function 'Guardar', 'calc_and_submit()' %>
+  <%= link_to 'Volver a la lista de fichas', cards_path %>
+  <%= link_to 'Ver esta ficha en la web', @card %>
+</div>
+
+<div id="sidebar">
+  <%= render 'slides' %>
+  <%= render 'files' %>
+</div>
+<%= render 'form' %>
+

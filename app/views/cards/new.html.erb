@@ -1,0 +1,12 @@
+<h1>Crear una nueva ficha</h1>
+<p>Nota: para poder subir imágenes o ficheros a esta ficha, debes guardarla primero</p>
+
+<div class="actions">
+  <%= link_to_function 'Guardar', 'getElementById("editor").submit();' %>
+  <%= link_to 'Cancelar', cards_path  %>
+</div>
+
+
+<%= render 'form' %>
+
+

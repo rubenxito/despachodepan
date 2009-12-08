@@ -1,0 +1,77 @@
+
+@import 'reset.css';
+
+/** VARIABLES **/
+
+@fondo: #efefef;
+@azul: #40CAFC;
+@azulclaro: #D6F3FE;
+@gris: #696969;
+@grisclaro: #EFEFEF;
+.round {-moz-border-radius: 0.5em;-webkit-border-radius: 0.5em;}
+.round-top {-moz-border-radius: 0.5em 0.5em 0 0;-webkit-border-radius: 0.5em 0.5em 0 0;}
+.round-bottom {-moz-border-radius: 0 0 0.5em 0.5em;-webkit-border-radius: 0 0 0.5em 0.5em;}
+
+/** GENERAL **/
+html {
+    font-size: 11px;
+    font-family: "Verdana", sans;
+    background-color: @fondo;
+}
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+h1 {font-size: 200%; margin-top: 0.2em;}
+h2 {
+    font-size: 150%; margin: 0.5em 0 0.2em 0;
+    color: @gris; border-bottom: 2px solid @azulclaro;}
+
+/** LAYOUT **/
+#page {
+    width: 80%; margin: 2em auto;
+    background-color: white; .round;}
+.banner {
+    padding: 0.5em 1em;
+    color: white; background-color: @azul;
+}
+#header {.round-top;}
+#footer {text-align: center; .round-bottom;}
+.content {
+    padding: 1em;
+}
+
+/** ELEMENTS **/
+div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
+.actions a {
+    display: block; float: left; padding: 0.2em 1em 0.3em 1em; margin: 0 0.5em 0.2em 0;
+    background-color: @azulclaro; .round; color: @azul;
+}
+.actions a:hover {
+    background-color: @azul; color: white; text-decoration: none;
+}
+.calc {letter-spacing: 0.5em; color: @gris;}
+.calc:hover {color: black; text-decoration: none;}
+
+/** FORMS **/
+form p label {
+    display: block; margin: 0.5em 0 0.2em 0; font-weight: bold;
+}
+form p span {font-weight: bold; }
+form p input[type=text] {
+    width: 20em; padding: 2px;
+    border: 1px solid @grisclaro;}
+form p.info {
+    display: block;
+    color: @gris;}
+
+/** TABLE **/
+table {width: 100%;}
+table thead {
+    padding: 0.2em 0; font-weight: bold;
+    background-color: @azulclaro;}
+table tr.odd {background-color: @fondo;}
+table td {padding: 0.2em 1em;}
+table td.title {width: 15em;}
+table td.title a {display: block; width: 10em; font-weight: bold;}
+table td a {color: black; }
+table td.actions {font-size: 80%;}

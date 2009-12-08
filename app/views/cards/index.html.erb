@@ -1,0 +1,67 @@
+<%= title 'Listado de fichas' %>
+
+<div class="actions">
+  <%= link_to 'crear nueva ficha', new_card_path %>
+</div>
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <td>Título</td>
+      <td>Imágen</td>
+      <td>Foto</td>
+      <td>Posición</td>
+      <td>Color</td>
+      <td>Categorías</td>
+      <td>Última edición</td>
+      <td>&nbbp;</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr class="<%= cycle("even", "odd") -%>">
+
+        <td class="title">
+          <%= link_to card.title, edit_card_path(card) %>
+        </td>
+
+        <td><%= image_tag card.main_image.public_filename(:thumb)  unless card.main_image.nil? %></td>
+        <td><%= image_tag card.main_slide.image.public_filename(:thumb)  unless card.main_slide.nil? %><br/>
+          total: <%= card.card_images.size %> fotos
+        </td>
+
+        <td><%= card.visible ? '' : '<b>invisible!</b><br/>' %>
+          de <b><%= card.start.blank? ? '?' : card.start %></b> hasta
+          <b><%= card.finish.blank? ? 'ahora' : card.finish %></b><br/>
+          fila: <b><%= card.vposition %>&nbsp;</b>
+        </td>
+        
+        <td>
+          <% if card.has_color %>
+            <%= color_example card.color.value %>
+            <%= color_example card.color.high_value %>
+          <% end %>
+        </td>
+
+        <td>
+          <% for tag in card.tags %>
+            <div class="card_tag" style="background-color: <%= "##{tag.color.value}" %>;">
+              <%= tag.name %></div>
+            <% end -%>
+        </td>
+
+        <td>
+          <%= time_ago_in_words card.updated_at %>
+        </td>
+
+        <td class="actions">
+          <%= link_to 'Ver', card_path(card) %>
+          <% if card.id != 1 %>
+            <%= link_to 'Borrar', card, :method => 'delete',
+              :confirm => "Estás a punto de borrar la ficha '#{card.title}' ¿Estás segura?" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

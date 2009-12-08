@@ -1,16 +1,17 @@
 <VirtualHost *:80>
-    ServerName despachodepan.zaszas.net
-
-    DocumentRoot /home/deploy/despachodepan/current/public
-    RailsBaseURI /
+    ServerName despachodepan.local
+    RailsEnv staging
 
     RewriteEngine On
     RewriteRule ^/$ /cache/index.html [QSA]
     RewriteRule ^([^.]+)$ /cache/$1.html [QSA]
 
-    <Directory /home/deploy/despachodepan/current/public/>
+    ErrorLog despachodepan.log
+    DocumentRoot /home/dani/Sites/despachodepan/public
+
+    <Directory /home/dani/Sites/despachodepan/public/>
         Options FollowSymLinks
-	Allow from all
+      	Allow from all
 	AllowOverride None
 	Order allow,deny
     </Directory>

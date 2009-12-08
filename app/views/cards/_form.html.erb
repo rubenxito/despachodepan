@@ -1,6 +1,5 @@
 
 <% form_for @card, :html => {:multipart => true}  do |f| %>
-
   <h2>Valores generales</h2>
   <p><%= f.check_box :visible  %> <span>¿Mostrar en el índice? </span></p>
 
@@ -8,6 +7,15 @@
     <label for="card_title">Título</label>
     <%= f.text_field :title  %>
   </p>
+
+  <p>
+    <label>URL</label>
+    <%= f.text_field :url %>
+  </p>
+  <p class="info">La url es lo se necesita para acceder a esta página. Sólo
+    puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
+    símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
+    cuando guardes.</p>
 
   <p>
     <label for="card_start">Fecha de inicio</label>

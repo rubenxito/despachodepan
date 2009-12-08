@@ -26,6 +26,7 @@
             <%= color_example card.color.value %>
             <%= color_example card.color.high_value %>
           <% end %>
+          <%= link_to "/#{card.url}", "/#{card.url}" %>
         </td>
 
         <td><%= image_tag card.main_image.public_filename(:thumb)  unless card.main_image.nil? %></td>
@@ -57,7 +58,7 @@
         <td class="actions">
           <%= (link_to 'Borrar', card, :method => 'delete',
             :confirm => "Estás a punto de borrar la ficha '#{card.title}' ¿Estás segura?") unless card.id == 1%>
-          <%= link_to 'Ver', card_path(card) %>
+          <%= link_to 'Ver', "/#{card.url}" %>
         </td>
       </tr>
     <% end %>

@@ -12,6 +12,8 @@ class Card < ActiveRecord::Base
 		:class_name => 'Slide'
 	belongs_to :main_file, :foreign_key => :main_file_id,
 		:class_name => 'CardFile'
+
+  before_save :generate_url
 	
 	BEGIN_YEAR = 2001
 	BLOCS_PER_YEAR = 16
@@ -41,15 +43,22 @@ class Card < ActiveRecord::Base
 		!color.nil?
 	end
 
-private 
+  private
 	def parse_date(str_date)
-		 a = str_date.split('/').map{|str| str.to_i}
-		 Date.new(a[2], a[1], a[0])
+    a = str_date.split('/').map{|str| str.to_i}
+    Date.new(a[2], a[1], a[0])
 	end
 	
 	def date_to_column(date)
 		year = date.year - BEGIN_YEAR
 		offset = date.yday / DAYS_PER_BLOC
 		year * BLOCS_PER_YEAR + offset
-	end	
+	end
+
+  def generate_url
+    if self.respond_to?(:url) && self.url.blank?
+      self.url = title.downcase.gsub(' ', '-').gsub(/"/, '').gsub(/á/, 'a').
+        gsub(/é/, 'e').gsub(/í/, 'i').gsub(/ó/, 'o').gsub(/ú/, 'u')
+    end
+  end
 end

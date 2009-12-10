@@ -156,14 +156,7 @@ div.tab span a {
     color: #40CAFC;
 }
 
-#categories {
-    text-align: left;
-    position: absolute;
-    width: 110px;
-    left: 389px;
-    top: -244px;
-    font-size: 10px;
-}
+
 
 #categories .tag {
     color: gray;
@@ -209,3 +202,15 @@ div.tab span a {
     font-size: 10px;
 }
 
+/** TAGS **/
+#tags {
+    position: absolute; width: 110px; left: 391px; top: 50px;
+    text-align: left; font-size: 10px;
+}
+
+#tags li {display: block; width: 100%; overflow: hidden; margin: 4px 0;}
+#tags li .tag {display: block; float: left; width: 90px;}
+#tags li label {
+    display: block; float: left; width: 10px; height: 10px;
+    overflow: hidden; text-indent: -1000px; font-size: 0px;
+          border: 1px solid gray;}

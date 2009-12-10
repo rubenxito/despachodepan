@@ -4,4 +4,8 @@ module ApplicationHelper
     content_for(:title) {title}
     "<h1>#{title}</h1>"
   end
+
+  def c(value)
+    "##{value}"
+  end
 end

@@ -1,30 +1,27 @@
 <script type="text/javascript">
-	var tagIDs = {};
+  var tagToCardIDs = {};
+<% for tag in @tags %>
+    tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
+<% end %>
+  var cardIDs = [<%= @cards.map(&:id).join(',') %>];
 </script>
 
 <div id="grid">
-	<div id="content">
-		<% for card in @cards %>
-			<%= pinta_card(card) if card.visible? %>
-			<%= pinta_milestones(card) if card.visible? %>
-		<% end %>
-		<div id="preview" style="display: none"></div>
-		<div id="loading" style="display: none"><div id="spinner"></div></div>
-	</div>
+  <div id="content">
+    <% @cards.each do |card| %>
+      <%= pinta_card(card) if card.visible? %>
+      <%= pinta_milestones(card) if card.visible? %>
+    <% end %>
+    <div id="preview" style="display: none"></div>
+    <div id="loading" style="display: none"><div id="spinner"></div></div>
+  </div>
 </div>
-<div id="categories" style="display: none;">
-	<div id="tag_space" style="height: 0px;">&nbsp;</div>
-	<div class="controls">
-		<%= link_to_function 'todas', 'Tags.selectAll();' %></div>
-	<% for tag in @tags %>
-	<script type="text/javascript">
-		tagIDs['tag<%= tag.id -%>'] = "<%= tag_ids tag %>";
-	</script>
-		<div  id="tag<%= tag.id -%>blockref" class="blockref" style="display: none; background-color: #<%= tag.color.value %>;">&nbsp;</div>
-		<div id="tag<%= tag.id -%>" class="tag" style="color: #<%= tag.color.value %>; ">
-			<%= tag.name %>
-			<span id="ref<%= tag.id -%>" class="reference" style="">&nbsp;</span>
-		</div>
-	<% end %>
-	<div class="controls" style="margin-top: 5px;"><%= link_to_function 'ninguna', 'Tags.selectNone();' %></div>
-</div>
+<ul id="tags" style="">
+  <% @tags.each do |tag| %>
+    <li>
+      <a id="tag-<%= tag.id %>" class="tag tag-link" href="#" style="color: <%= c(tag.color.value) %>;"><%= tag.name %></a>
+      <label id="ind-<%= tag.id %>" class="tag-indicator tag-link"
+             style="color: <%= c(tag.color.value) %>; border-color: <%= c(tag.color.value) %>"><%= tag.name %></label>
+    </li>
+  <% end %>
+</ul>

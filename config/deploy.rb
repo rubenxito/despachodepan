@@ -35,7 +35,7 @@ after "deploy", "deploy:restart"
 namespace :config do
   desc "copy shared configurations to current"
   task :copy_shared_configurations, :roles => [:app] do
-    %w[database.yml].each do |f|
+    %w[database.yml despachodepan.yml].each do |f|
       run "ln -nsf #{shared_path}/config/#{f} #{release_path}/config/#{f}"
     end
      run "ln -sf #{shared_path}/media #{release_path}/public/media"

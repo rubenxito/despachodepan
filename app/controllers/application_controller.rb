@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   protected
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      APP_CONFIG['users'].include?(username) && password == APP_CONFIG['password']
+      (RAILS_ENV == 'test' && username == 'user' && password == 'secret') ||
+      (APP_CONFIG['users'].include?(username) && password == APP_CONFIG['password'])
     end
   end
 end

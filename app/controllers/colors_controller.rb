@@ -1,5 +1,6 @@
 class ColorsController < ApplicationController
   layout 'admin'
+  before_filter :authenticate
   inherit_resources
 
   def index

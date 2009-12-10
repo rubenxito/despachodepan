@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   layout 'admin'
+  before_filter :authenticate
   inherit_resources
 
   def new

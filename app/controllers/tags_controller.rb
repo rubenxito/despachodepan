@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_filter :authenticate
+
   layout 'admin'
   inherit_resources
 

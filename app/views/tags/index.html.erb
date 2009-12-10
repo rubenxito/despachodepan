@@ -33,7 +33,7 @@
             <td class="actions">
               <%= (link_to 'Borrar', tag, :method => 'delete',
                 :confirm => "¡Borrar la categoría '#{tag.name}'! ¿Estás segura?") unless tag.cards.size > 0 %>
-              <%= link_to 'Editar', edit_color_path(tag) %>
+              <%= link_to 'Editar', edit_tag_path(tag) %>
             </td></tr>
         <% end %>
       </tbody>

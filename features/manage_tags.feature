@@ -1,23 +1,23 @@
-Feature: Manage colors
-  In order to give a nice touch to our cards
+Feature: Manage tags
+  In order to have my cards ordered
   As an admin
-  In want to create and manage colors
-  
-  Scenario: Color list
+  In want to create and manage tags
+
+  @focus
+  Scenario: Tag list
     Given I am logged in
-    And a color exists with name: "Pistacho", value: "AAAAAA", high_value: "FFFFFF"
-    When I go to the list of colors
-    Then I should see :colors.index.title
-    And I should see "Pistacho"
-    And I should see "AAAAAA"
-    And I should see "FFFFFF"
+    And a color exists with name: "Color"
+    And a tag exists with name: "Testing", color_id: "1"
+    When I go to the list of tags
+    Then I should see :tags.index.title
+    And I should see "Testing"
 
   Scenario: From index to edit
     Given I am logged in
-    And a color exists with name: "Pistacho", value: "AAAAAA", high_value: "FFFFFF"
-    When I go to the list of colors
+    And a tag exists with name: "Testing", color: "1"
+    When I go to the list of tags
     And I follow :modify
-    Then I should see "Modificar el color 'Pistacho'"
+    Then I should see "Modificar la categoría 'Testing'"
 
   Scenario: Delete color
     Given I am logged in

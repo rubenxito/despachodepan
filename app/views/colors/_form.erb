@@ -15,6 +15,6 @@
     <%= form.text_field :high_value  %>
   </p>
   <p>
-    <%= submit_tag (@color.new_record? ? 'Añadir' : 'Guardar') %>
+    <%= submit_tag t(submit_label @color) %>
   </p>
 <% end -%>

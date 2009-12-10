@@ -2,6 +2,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
+  create: "Crear"
+  update: "Guardar"
+
   lpn: 'l a  p a n a d e r í a '
   cards:
     index:
@@ -16,6 +19,10 @@ es:
   colors:
     index:
       title: "Todos los colores"
+      modify: "Editar"
+      delete: "Borrar"
+    edit:
+      title: "Modificar el color '{{color}}'"
 
   layouts:
     admin:

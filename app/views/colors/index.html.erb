@@ -16,8 +16,9 @@
             <td><%= color_example color.value %></td>
             <td><%= color_example color.high_value %></td>
             <td class="actions">
-              <%= link_to 'Borrar' %>
-              <%= link_to 'Editar', edit_color_path(color) %> 
+              <%= link_to t(:delete), color, :method => 'delete',
+                :confirm => "Te vas a cepillar a '#{color.name}... ¿Segura?!!" %>
+              <%= link_to t(:modify), edit_color_path(color) %>
             </td>
           </tr>
         <% end %>

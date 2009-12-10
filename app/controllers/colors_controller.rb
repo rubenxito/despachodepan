@@ -7,4 +7,18 @@ class ColorsController < ApplicationController
     @color = Color.new
     index!
   end
+
+
+  def create
+    create! do |success, failure|
+      success.html {redirect_to colors_path}
+    end
+  end
+
+  def update
+    update! do |success, failure|
+      success.html {redirect_to colors_path}
+    end
+  end
+
 end

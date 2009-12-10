@@ -44,3 +44,11 @@ Webrat.configure do |config|
   config.open_error_files = false # Set to true if you want error pages to pop up in the browser
 end
 
+require 'pickle/world'
+# Example of configuring pickle:
+#
+# Pickle.configure do |config|
+#   config.adapters = [:machinist]
+#   config.map 'I', 'myself', 'me', 'my', :to => 'user: "me"'
+# end
+require 'pickle/path/world'

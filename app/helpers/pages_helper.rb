@@ -44,7 +44,10 @@ module PagesHelper
 		style = new_style(left, top, width, nil, nil)
 		style['text-align'] = 'right'
 		style['color'] = "##{card.color.value}"
-		pinta_div(id, "card card#{card.id} caption", style, card.title)
+    clazz = "card card#{card.id} caption"
+    content_tag :a, card.title, {:class => clazz, :id => id,
+      :href => "/#{card.url}",
+      :style => style.pinta}
 	end
 
 	def pinta_main(card)
@@ -54,21 +57,23 @@ module PagesHelper
 		top = card.vposition * BLOC_SIZE
 		style = new_style(card.begin_column * BLOC_SIZE, top, BLOC_SIZE, BLOC_SIZE, card.color.value)
 		style['font-size'] = '1px'
-		pinta_div(id, "card element card#{card.id} #{extra}", style, '&nbsp;')
+    clazz = "card element card#{card.id} #{extra}"
+    content_tag :a, card.title, {:class => clazz, :id => id,
+      :href => "/#{card.url}",
+      :style => style.pinta}
 	end
 
 	def pinta_slide(card, slide, begin_column, memo)
 		id = "milestone:#{slide.id}-#{card.id}"
 		left = (begin_column + slide.date.to_i) * BLOC_SIZE
-		top =card.vposition * BLOC_SIZE
-		style = new_style(left, top, BLOC_SIZE, BLOC_SIZE, card.color.value)
+		top = card.vposition * BLOC_SIZE
+		style = new_style(left, top, BLOC_SIZE - 4, BLOC_SIZE - 4, 'white')
+    style['border'] = "2px solid ##{card.color.value};"
 		style['font-size'] = '1px'
-		memo << pinta_div(id, "card element card#{card.id}", style, '&nbsp;')
-
-		id = "inmilestone:#{slide.id}-#{card.id}"
-		style = new_style(left + 2, top + 2, BLOC_SIZE - 4, BLOC_SIZE - 4, 'fff')
-		style['font-size'] = '1px'
-		memo << pinta_div(id, "card element card#{card.id} preview", style, '&nbsp;')
+    clazz = "card element milestone card#{card.id}"
+    memo << content_tag(:a, ' ', {:class => clazz, :id => id, 
+        :href => "/#{card.url}#/imagen=#{slide.pos}",
+        :style => style.pinta})
 	end
 
 	def pinta_line(card)
@@ -81,7 +86,7 @@ module PagesHelper
 		pinta_div(id, "card element card#{card.id}", style, '&nbsp;')
 	end
 
-	def new_style(left, top, width, height, bgcolor)
+	def new_style(left, top, width, height = nil, bgcolor = nil)
 		styles = {}
 		styles[:left] = "#{left}px" unless left.nil?
 		styles[:top] = "#{top}px" unless top.nil?

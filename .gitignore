@@ -5,6 +5,7 @@ config/git.yml
 nbproject
 db/*.sqlite3
 db/development.sqlite3
+config/despachodepan.yml
 public/cache/**
 .idea/
 public/media/**

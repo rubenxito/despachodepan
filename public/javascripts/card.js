@@ -2,21 +2,43 @@
 (function() {
     $(document).ready(function(){
         Scroll.prepare();
+        var imageCount = $("#slides .slide").size();
 
-        Slide.first = first_image;
-        Slide.last = last_image;
-        Slide.show(show_image);
+        $("#slidePrev").click(function() {
+            var current = getCurrent();
+            if (current > 1) {
+                triggerImage(current -1);
+            }
+            return false;
+        });
+
+        $("#slideNext").click(function() {
+            var current = getCurrent();
+            if (current < imageCount) {
+                triggerImage(current + 1);
+            }
+            return false;
+        });
+
+        $(window).trigger('hashchange');
     });
 
-    indice = function () {
-        var h = window.history;
-        if ( h.length ) { // if there is a history
-            h.back();     // equivalent to clicking back button
-        } else {
-            window.location.href = "/";
+    $(window).bind('hashchange', function(e) {
+        Slide.show(getCurrent());
+    });
+
+    function getCurrent() {
+        var link = $.param.fragment();
+        var number = 1;
+        if (link.match(/^\/imagen=\d+/)) {
+            number = parseInt(link.substring(8));
         }
+        return number;
     }
 
+    function triggerImage(number) {
+        $.bbq.pushState("#/imagen=" + number);
+    }
 
     Scroll = {
         btnDown : null,
@@ -99,7 +121,7 @@
             text_box.css('margin-left', margin);
             image.fadeIn("slow");
 		
-            $('#number_control').text($('#slideNumber' + number).text());
+            $('#number_control').text(number);
 		
             text_box.fadeIn("slow");
             $("#showImage" + number).addClass('selected');

@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     @scroll_time = time
 		@cards = Card.find(:all)
 		@tags = Tag.find(:all, :order => 'position')
-    render :action => 'index', :layout => 'grid'
+    render :action => 'index', :layout => 'grids'
 	end
 
   def prepare_card(card)
@@ -45,7 +45,7 @@ class PagesController < ApplicationController
 			first = @card.slides.first
 			first_id = first.nil? ? '0' : first.id
 			@show_image = params[:imagen].blank? ? first_id.to_s : params[:imagen]
-			render :action => 'ficha', :layout => 'card'
+			render :action => 'card', :layout => 'cards'
 		end
 	end
 end

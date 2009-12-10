@@ -1,3 +1,17 @@
+<% title @card.title %>
+<% content_for :header do -%>
+  <style type="text/css">
+    #slide_controls a.selected {
+      color: <%= c @card.color.value %>;
+    }
+  </style>
+  <script type="text/javascript">
+    var first_image = <%= @card.slides.first.id %>;
+    var last_image = <%= @card.slides.last.id %>;
+  </script>
+<% end -%>
+
+
 <div id="title" style="width: <%= (@card.title.length * 0.80)  %>em;">
   <div class="tab" style="<%= border_tab @card.color.value %>" >
     <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
@@ -8,8 +22,8 @@
   <div id="properties" class="card_element"
        style="background-color: <%= "##{@card.color.high_value}" %>; color: <%= "##{@card.color.value}" %>;">
 
-    <div id="files" style="top: <%= 237 - @card.card_files.length * 23 %>px;">
-      <% for file in @card.card_files %>
+    <div id="files" style="top: <%= 237 - @card.files.length * 23 %>px;">
+      <% @card.files.each do |file| %>
         <div class="prop_separator">&nbsp;</div>
         <div class="card_file">
           <%= image_tag 'file.gif' %>
@@ -50,31 +64,26 @@
   <div id="scroll_up" class="scrollers" style="display: none"></div>
 
 
-
-  <script type="text/javascript">
-    var first_image = <%= @card.slides.first.id %>;
-    var last_image = <%= @card.slides.last.id %>;
-    var show_image = <%= @show_image %>;
-  </script>
-  <div id="slide_image" class="card_element">
-    <% @card.slides.each_with_index do |ci, index| %>
-      <div id="slideImage<%= ci.id %>" style="display: none">
-        <%= image_tag ci.image.public_filename,
-          :alt => ci.text.strip, :size => "#{ci.image.width}x#{ci.image.height}" %>
+  <!-- slides -->
+  <div id="slides" class="card_element">
+    <% @card.slides.each do |slide| %>
+      <div id="slideImage<%= slide.pos + 1 %>" class="slide" style="display: none">
+        <%= image_tag slide.image.public_filename,
+          :alt => slide.text.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
         <div class="slide_text">
-          <%= textilize ci.text %>
+          <%= textilize slide.text %>
         </div>
-        <div id="slideNumber<%= ci.id %>" style="display: none;"><%= index + 1 %></div>
+        <div id="slideNumber<%= slide.pos %>" style="display: none;"><%= slide.pos %></div>
       </div>
     <% end %>
   </div>
 
   <div id="slide_controls" class="card_element">
-    <%= link_to_function image_tag('arrowleft1.gif', :alt => 'primera'), 'Slide.goFirst()', {:id => 'btnPrev'}, :class => 'arrow' %>
-    <%= link_to_function image_tag('arrowleft2.gif', :alt => 'anterior'), 'Slide.goPrev()', {:id => 'btnPrev'}, :class => 'arrow'%>
-    &nbsp;<span id="number_control">xx</span> / <span><%= @card.slides.length %></span>&nbsp;
-    <%= link_to_function image_tag('arrowright1.gif', :alt =>'siguiente'), 'Slide.goNext()', {:id => 'btnNext'}, :class => 'arrow' %>
-    <%= link_to_function image_tag('arrowright2.gif', :alt => 'última'), 'Slide.goLast()', {:id => 'btnNext'}, :class => 'arrow'  %>
+    <%= link_to image_tag('arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'},  :class => 'arrow' %>
+    <%= link_to image_tag('arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow'%>
+    &nbsp;<span id="number_control"></span> / <span><%= @card.slides.length %></span>&nbsp;
+    <%= link_to image_tag('arrowright1.gif', :alt =>'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
+    <%= link_to image_tag('arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.slides.size}", {:id => 'slideLast'}, :class => 'arrow'  %>
   </div>
 
 </div>

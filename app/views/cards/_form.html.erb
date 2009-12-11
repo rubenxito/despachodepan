@@ -1,107 +1,113 @@
+<div class="columns">
 
-<% form_for @card, :html => {:multipart => true}  do |f| %>
-  <h2>Valores generales</h2>
-  <p><%= f.check_box :visible  %> <span>¿Mostrar en el índice? </span></p>
+  <% form_for @card, :html => {:multipart => true}  do |f| %>
+    <p><%= f.submit t(:update) %></p>
 
-  <p>
-    <label for="card_title">Título</label>
-    <%= f.text_field :title  %>
-  </p>
+    <div class="col2">
+      <h2>Valores generales</h2>
+      <p><%= f.check_box :visible  %> <span>¿Mostrar en el índice? </span></p>
 
-  <p>
-    <label>URL</label>
-    <span class="info">La url es lo se necesita para acceder a esta página. Sólo
-      puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
-      símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
-      cuando guardes.
-    </span>
-    <%= f.text_field :url %>
-  </p>
+      <p>
+        <label for="card_title">Título</label>
+        <%= f.text_field :title  %>
+      </p>
 
-  <p>
-    <label for="card_start">Fecha de inicio</label>
-    <%= f.text_field :start  %>
-  </p>
-  <p>
-    <label for="card_finish">Fecha de fin (vacío, significa sin concluir)</label>
-    <%= f.text_field :finish  %>
-  </p>
-  <% if !@card.start.blank?  %>
-    <p>
-      <label for="card_finish">Longitud (en cuadraditos):</label>
-      <%= @card.end_column - @card.begin_column %>
-    </p>
-  <% end -%>
-  <p>
-    <label for="card_vposition">Posición vertical</label>
-    <%= f.text_field :vposition  %>
-  </p>
+      <p>
+        <label>URL</label>
+        <span class="info">La url es lo se necesita para acceder a esta página. Sólo
+          puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
+          símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
+          cuando guardes.
+        </span>
+        <%= f.text_field :url %>
+      </p>
 
-  <% if !@card.new_record? %>
-    <label for="card_color">Color actual: </label>
-    <% if !@card.color.nil? %>
-      <div class="color_example">
-        <%= @card.color.name %>
-        <%= color_example @card.color.value %>
-        <%= color_example @card.color.high_value %>
+      <p>
+        <label for="card_start">Fecha de inicio</label>
+        <%= f.text_field :start  %>
+      </p>
+      <p>
+        <label for="card_finish">Fecha de fin (vacío, significa sin concluir)</label>
+        <%= f.text_field :finish  %>
+      </p>
+      <% if !@card.start.blank?  %>
+        <p>
+          <label for="card_finish">Longitud (en cuadraditos):</label>
+          <%= @card.end_column - @card.begin_column %>
+        </p>
+      <% end -%>
+      <p>
+        <label for="card_vposition">Posición vertical</label>
+        <%= f.text_field :vposition  %>
+      </p>
+
+      <% if !@card.new_record? %>
+        <label for="card_color">Color actual: </label>
+        <% if !@card.color.nil? %>
+          <div class="color_example">
+            <%= @card.color.name %>
+            <%= color_example @card.color.value %>
+            <%= color_example @card.color.high_value %>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <h2>Recursos principales</h2>
+      <p><label for="card_main_image">Imagen principal</label>
+        <span class="info">usa imágenes a 72dpi de resolución.
+          la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
+        <% if @card.main_image.nil? %>
+          <%= file_field_tag :main_data  %>
+        <% else %>
+          <%= image_tag @card.main_image.public_filename %>
+          <%= link_to 'borra esta imágen si quieres cambiarla', '#',
+            :method => 'post', :confirm => '¿quieres borrar la imágen principal?' %>
+        <% end %>
+      </p>
+      <p><label for="card_link">Enlace principal:</label>
+        <%= f.text_field :link  %></p>
+
+      <p><label for="card_link">Fichero principal:</label>
+        <% if @card.main_file.nil? %>
+          no especificado
+        <% else -%>
+          <%= image_tag 'file.gif' %>
+          <%= @card.main_file.title%>: <%= @card.main_file.filename %>
+          <%= link_to 'Quitar fichero principal', :action => 'remove_main_file', :id => @card %>
+        <% end -%>
+      </p>
+      <label for="card_slide">Fotografía principal: </label>
+      <div id="main_image" style="width: 45%; overflow: hidden;">
+        <%= image_tag @card.main_slide.image.public_filename(:thumb)  unless @card.main_slide.nil? %>
       </div>
-    <% end %>
+
+
+
+      <h2>Categorías de esta ficha</h2>
+      <div id="tag_selector">
+        <% for tag in @tags %>
+          <% clazz = @card.is_about?(tag) ? 'selected' : '' %>
+          <%= link_to tag.name, '#', {:id => "tag#{tag.id}", :class => clazz }  %>
+        <% end %>
+        <%= hidden_field_tag 'selected', '', {:id => 'selected' } %>
+      </div>
+      <div style="clear: left" >&nbsp;</div>
+
+
+    </div>
+    <div class="col2">
+      <h2>Textos</h2>
+      <p>
+        <label for="card_content">Texto</label>
+        <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
+        <%= f.text_area :text  %>
+      </p>
+
+      <p>
+        <label for="card_content">Propiedades</label>
+        <%= f.text_area :properties  %>
+      </p>
+    </div>
   <% end %>
-
-
-  <h2>Recursos principales</h2>
-  <p><label for="card_link">Enlace principal:</label>
-    <%= f.text_field :link  %></p>
-
-  <p><label for="card_link">Fichero principal:</label>
-    <% if @card.main_file.nil? %>
-      no especificado
-    <% else -%>
-      <%= image_tag 'file.gif' %>
-      <%= @card.main_file.title%>: <%= @card.main_file.filename %>
-      <%= link_to 'Quitar fichero principal', :action => 'remove_main_file', :id => @card %>
-    <% end -%>
-  </p>
-  <label for="card_slide">Fotografía principal: </label>
-  <div id="main_image" style="width: 45%; overflow: hidden;">
-    <%= image_tag @card.main_slide.image.public_filename(:thumb)  unless @card.main_slide.nil? %>
-  </div>
-
-
-
-  <h2>Categorías de esta ficha</h2>
-  <div id="tag_selector">
-    <% for tag in @tags %>
-      <% clazz = @card.is_about?(tag) ? 'selected' : '' %>
-      <%= link_to tag.name, '#', {:id => "tag#{tag.id}", :class => clazz }  %>
-    <% end %>
-    <%= hidden_field_tag 'selected', '', {:id => 'selected' } %>
-  </div>
-  <div style="clear: left" >&nbsp;</div>
-
-  <h2>Datos</h2>
-
-  <p><label for="card_main_image">Imagen principal</label>
-  <span class="info">usa imágenes a 72dpi de resolución.
-    la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
-  <% if @card.main_image.nil? %>
-    <%= file_field_tag :main_data  %>
-  <% else %>
-    <%= image_tag @card.main_image.public_filename %>
-    <%= link_to 'borra esta imágen si quieres cambiarla', '#',
-      :method => 'post', :confirm => '¿quieres borrar la imágen principal?' %>
-  <% end %>
-  </p>
-
-  <p>
-    <label for="card_content">Texto</label>
-  <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
-  <%= f.text_area :text  %>
-  </p>
-
-  <p>
-    <label for="card_content">Propiedades</label>
-    <%= f.text_area :properties  %>
-  </p>
-  <p><%= f.submit t(:update) %></p>
-<% end %>
+</div>

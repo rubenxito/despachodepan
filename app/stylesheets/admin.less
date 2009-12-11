@@ -8,6 +8,7 @@
 @azulclaro: #D6F3FE;
 @azulblanco: #F6FCFE;
 @gris: #696969;
+@grisoscuro: #101010;
 @grisclaro: #EFEFEF;
 .round {-moz-border-radius: 0.5em;-webkit-border-radius: 0.5em;}
 .round-top {-moz-border-radius: 0.5em 0.5em 0 0;-webkit-border-radius: 0.5em 0.5em 0 0;}
@@ -25,10 +26,11 @@ a:hover {text-decoration: underline; color: @azul;}
 h1 {font-size: 200%; margin-top: 0.2em;}
 h2 {
     font-size: 150%; margin: 0.5em 0 0.2em 0;
-    color: @gris; border-bottom: 2px solid @azulclaro;}
+    color: @grisoscuro; border-bottom: 2px solid @azulclaro;}
 
 /** LAYOUT **/
-#menu {width: 80%; margin: 1em auto; padding: 1em 0 0 2em;}
+#menu {width: 80%; margin: 1em auto; padding: 1em 0 0 2em; }
+#menu a {font-weight: normal;}
 #menu a:hover {text-decoration: none; color: black;}
 #menu .lpn {color: @azul;}
 #menu .lpn:hover {text-decoration: underline; color: @azul;}
@@ -85,7 +87,7 @@ a.url {color: @azul;}
 .nested form {margin: 1em;}
 form p {margin: 5px 0;}
 form label {
-    display: block; margin: 0.5em 0 0.2em 0; font-weight: bold;
+    display: block; margin: 1em 0 0.2em 0; font-weight: bold;
 }
 form p span {}
 form p input[type=text] {

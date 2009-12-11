@@ -2,14 +2,14 @@ require 'date.rb'
 
 class Card < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
-	has_many :slides, :dependent => :destroy, :order => 'pos'
+	has_many :slides, :dependent => :destroy, :order => 'pos', :include => [:image]
 	has_many :files, :class_name => 'CardFile', :dependent => :destroy
 	belongs_to :main_image, :class_name => "Image",
 		:foreign_key => :main_image_id,  :dependent => :destroy
 	belongs_to :color
-	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :tags, :include => [:color]
 	belongs_to :main_slide, :foreign_key => :main_slide_id,
-		:class_name => 'Slide'
+		:class_name => 'Slide', :include => [:image]
 	belongs_to :main_file, :foreign_key => :main_file_id,
 		:class_name => 'CardFile'
   has_one :selection

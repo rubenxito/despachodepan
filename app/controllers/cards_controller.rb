@@ -3,9 +3,14 @@ class CardsController < ApplicationController
   before_filter :authenticate
   inherit_resources
 
+  def index
+    @cards = Card.all(:include => [:color, :main_image, :main_slide, :tags, :selection])
+    index!
+  end
+
   def new
-    @tags = Tag.all
-    new!
+    card = Card.create(:title => 'ficha sin título')
+    redirect_to edit_card_path(card)
   end
 
   def show

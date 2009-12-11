@@ -8,6 +8,7 @@ class TagsController < ApplicationController
   
   def index
     @tag = Tag.new
+    @tags = Tag.all(:include => [:cards, :color])
     index!
   end
 

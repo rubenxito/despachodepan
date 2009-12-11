@@ -3,11 +3,13 @@ ActionController::Routing::Routes.draw do |map|
   map.lapanaderia '/lapanaderia', :controller => 'pages', :action => 'lapanaderia'
   map.indice '/indice', :controller => 'pages', :action => 'indice'
   
-  map.resources(:cards, :as => 'fichas') do |card|
-    card.resources :slides
-    card.resources :card_files
+  map.resources(:cards, :as => 'fichas', :path_prefix => 'admin') do |card|
+    card.resources :slides, :path_prefix => 'admin'
+    card.resources :card_files, :path_prefix => 'admin'
   end
-  map.resources :colors, :as => 'colores'
-  map.resources :tags, :as => 'categorias'
+
+  map.resources :selections, :as => 'seleccion', :path_prefix => 'admin'
+  map.resources :colors, :as => 'colores', :path_prefix => 'admin'
+  map.resources :tags, :as => 'categorias', :path_prefix => 'admin'
   map.connect '/:id', :controller => 'pages', :action => 'card'
 end

@@ -50,6 +50,7 @@ h2 {
 
 /** ELEMENTS **/
 div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
+.actions .separator {display: block; float: left; width: 1em; }
 .actions a {
     display: block; float: left; padding: 0.2em 1em 0.3em 1em; margin: 0 0.5em 0.2em 0;
     background-color: @azulclaro; .round; color: @azul;
@@ -63,6 +64,14 @@ div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
 .color_example {display: block; padding: 0.2em 2em; overflow: hidden; text-indent: -1000px;}
 .card_tag {padding: 0.2em 1em; .round; margin: 2px;}
 a.url {color: @azul;}
+
+.flash {background-color: yellow; color: black; padding: 0.2em 1em;}
+
+.info {
+    display: block; font-weight: normal;
+    color: @gris; }
+.info a {color: @azul;}
+
 
 /** FORMS **/
 .nested {
@@ -78,14 +87,10 @@ form p {margin: 5px 0;}
 form label {
     display: block; margin: 0.5em 0 0.2em 0; font-weight: bold;
 }
-form p span {font-weight: bold; }
+form p span {}
 form p input[type=text] {
     width: 20em; padding: 2px;
     border: 1px solid @grisclaro;}
-form p.info {
-    display: block;
-    color: @gris;}
-form p.info a {color: @azul;}
 textarea {width: 95%; padding: 2px; margin: 2px 5% 0 2px;}
 
 /** TABLE **/

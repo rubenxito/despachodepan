@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208195003) do
+ActiveRecord::Schema.define(:version => 20091211164123) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(:version => 20091208195003) do
     t.integer "size"
     t.integer "width"
     t.integer "height"
+  end
+
+  create_table "selections", :force => true do |t|
+    t.integer  "card_id"
+    t.text     "position"
+    t.text     "body"
+    t.boolean  "active",     :default => false
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "slides", :force => true do |t|

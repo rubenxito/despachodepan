@@ -1,0 +1,22 @@
+<div class="columns">
+  <div class="col2">
+    <% form_for @selection do |form| %>
+      <h2>Ficha relacionada</h2>
+      
+      <h2>Datos de la selección</h2>
+      <p>
+        <%= form.label :position, t(:position) %>
+        <%= form.radio_button :position, Selection::TOP %><span>Arriba</span><br/>
+        <%= form.radio_button :position, Selection::BOTTOM %><span>Abajo</span>
+      </p>
+      <p>
+        <%= form.label :body, t(:body) %>
+        <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
+        <%= form.text_area :body %>
+      </p>
+      <p>
+        <%= form.submit t(:update) %>
+      </p>
+    <% end %>
+  </div>
+</div>

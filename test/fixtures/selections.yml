@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  card: 
+  position: MyText
+  body: MyText
+  image: 
+
+two:
+  card: 
+  position: MyText
+  body: MyText
+  image: 

@@ -8,6 +8,10 @@ class CardsController < ApplicationController
     new!
   end
 
+  def show
+    redirect_to :action => 'edit'
+  end
+
   def edit
     @tags = Tag.all
     @slide = Slide.new

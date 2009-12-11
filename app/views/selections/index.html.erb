@@ -1,0 +1,18 @@
+<%= title t(:title) %>
+<br/>
+<div class="info">Si quieres seleccionar una ficha, ve a esa ficha y pulsa 'Añadir a la selección'</div>
+<br/><br/>
+<table>
+  <thead>
+    <tr>
+      <td>Título de la ficha</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @selections.each do |selection| -%>
+    <tr>
+      <td><%= link_to selection.card.title, selection %></td>
+    </tr>
+    <% end -%>
+  </tbody>
+</table>

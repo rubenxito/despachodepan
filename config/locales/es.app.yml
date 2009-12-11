@@ -5,6 +5,36 @@ es:
   create: "Crear"
   update: "Guardar"
   modify: "Editar"
+  
+  activerecord:
+    models:
+      card: "La ficha"
+      card_file: "El fichero"
+      color: "El color"
+      image: "La imágen"
+      selection: "La selección"
+      slide: "La imágen"
+      tag: "La categoría"
+
+  flash:
+    cards:
+      create:
+        notice: "Bien!! Ya tenemos nueva ficha"
+      update:
+        notice: "Bien!! Esta ficha va a quedar estupenda"
+      destroy:
+        notice: "Pues nada... nos hemos cepillado la ficha..."
+    colors:
+      create:
+        notice: "Bien!! Tenemos un nuevo color"
+      update:
+        notice: "Bien!! Pedazo de color"
+      destroy:
+        notice: "Pues nada... espero que no fuese un color muy importante..."
+    selections:
+      update:
+        notice: "Bien!! La selección ha sido modificada"
+
 
   lpn: 'l a  p a n a d e r í a '
   cards:
@@ -23,10 +53,23 @@ es:
       delete: "Borrar"
     edit:
       title: "Modificar el color '{{color}}'"
+  
+  selections:
+    index:
+      title: "Todas las fichas seleccionadas"
+    edit:
+      title: "Selección de la ficha '{{card}}'"
+    form:
+      card: "Ficha"
+      position: "Posición"
+      body: "Texto"
+      image: "Imágen"
 
   layouts:
     admin:
       CardsController: fichas
       ColorsController: colores
       TagsController: categorías
+      SelectionsController: selección
+      
       

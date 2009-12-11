@@ -10,12 +10,13 @@
 
   <p>
     <label>URL</label>
+    <span class="info">La url es lo se necesita para acceder a esta página. Sólo
+      puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
+      símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
+      cuando guardes.
+    </span>
     <%= f.text_field :url %>
   </p>
-  <p class="info">La url es lo se necesita para acceder a esta página. Sólo
-    puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
-    símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
-    cuando guardes.</p>
 
   <p>
     <label for="card_start">Fecha de inicio</label>
@@ -81,8 +82,8 @@
   <h2>Datos</h2>
 
   <p><label for="card_main_image">Imagen principal</label>
-  <p class="info">usa imágenes a 72dpi de resolución.
-    la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</p>
+  <span class="info">usa imágenes a 72dpi de resolución.
+    la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
   <% if @card.main_image.nil? %>
     <%= file_field_tag :main_data  %>
   <% else %>
@@ -94,7 +95,7 @@
 
   <p>
     <label for="card_content">Texto</label>
-  <p class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></p>
+  <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
   <%= f.text_area :text  %>
   </p>
 
@@ -102,4 +103,5 @@
     <label for="card_content">Propiedades</label>
     <%= f.text_area :properties  %>
   </p>
+  <p><%= f.submit t(:update) %></p>
 <% end %>

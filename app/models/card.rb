@@ -12,8 +12,14 @@ class Card < ActiveRecord::Base
 		:class_name => 'Slide'
 	belongs_to :main_file, :foreign_key => :main_file_id,
 		:class_name => 'CardFile'
+  has_one :selection
 
+  # VALIDATIONS
+  validates_presence_of :title
+
+  # CALLBACKS
   before_save :generate_url
+  after_create :create_selection
 	
 	BEGIN_YEAR = 2001
 	BLOCS_PER_YEAR = 16

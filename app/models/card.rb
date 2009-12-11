@@ -20,6 +20,8 @@ class Card < ActiveRecord::Base
   # CALLBACKS
   before_save :generate_url
   after_create :create_selection
+
+  POSITION = {:top => 0, :bottom => 1}
 	
 	BEGIN_YEAR = 2001
 	BLOCS_PER_YEAR = 16

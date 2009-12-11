@@ -40,6 +40,12 @@ es:
   cards:
     index:
       title: "Todas las fichas"
+    form:
+      text: "Texto:"
+      color_id: "Cambiar color a: "
+      selection_position: "Posición en la ficha de selección"
+      selection_body: "Texto en la ficha de selección"
+
 
   tags:
     create: "Añadir categoría"

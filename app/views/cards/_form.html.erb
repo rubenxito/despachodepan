@@ -1,56 +1,59 @@
 <div class="columns">
 
-  <% form_for @card, :html => {:multipart => true}  do |f| %>
-    <p><%= f.submit t(:update) %></p>
+  <% form_for @card, :html => {:multipart => true}  do |form| %>
+    <p class="submit"><%= form.submit t(:update) %></p>
 
     <div class="col2">
       <h2>Valores generales</h2>
-      <p><%= f.check_box :visible  %> <span>¿Mostrar en el índice? </span></p>
+      <p><%= form.check_box :visible  %> <span>¿Mostrar en el índice? </span></p>
 
       <p>
         <label for="card_title">Título</label>
-        <%= f.text_field :title  %>
+        <%= form.text_field :title  %>
       </p>
 
       <p>
         <label>URL</label>
-        <span class="info">La url es lo se necesita para acceder a esta página. Sólo
+        <span class="info">La url lo que hay que poner en el navegador para acceder a la ficha. Sólo
           puede contener letras, números o guiones. No puede contener tildes, eñes, u otros
           símbolos como : / % ? etcétera. Si lo dejas en blanco se generará automáticamente
           cuando guardes.
         </span>
-        <%= f.text_field :url %>
+        <%= form.text_field :url %>
       </p>
 
       <p>
         <label for="card_start">Fecha de inicio</label>
-        <%= f.text_field :start  %>
+        <%= form.text_field :start  %>
       </p>
       <p>
-        <label for="card_finish">Fecha de fin (vacío, significa sin concluir)</label>
-        <%= f.text_field :finish  %>
+        <label for="card_finish">Fecha de fin (vacío, significa sin concluir):</label>
+        <%= form.text_field :finish  %>
       </p>
       <% if !@card.start.blank?  %>
         <p>
           <label for="card_finish">Longitud (en cuadraditos):</label>
+          <span class="info">Se calcula automáticamente a partir de las fechas de inicio y fin</span>
           <%= @card.end_column - @card.begin_column %>
         </p>
       <% end -%>
       <p>
         <label for="card_vposition">Posición vertical</label>
-        <%= f.text_field :vposition  %>
+        <%= form.text_field :vposition  %>
       </p>
 
-      <% if !@card.new_record? %>
-        <label for="card_color">Color actual: </label>
+      <p>
+        <% selected = @card.color.nil? ? {} : {:selected => @card.color.id} %>
+        <%= form.label :color_id, t(:color_id) %>
+        <%= form.select :color_id, @colors.collect {|c| [ c.name, c.id ] }, selected %>
         <% if !@card.color.nil? %>
-          <div class="color_example">
-            <%= @card.color.name %>
-            <%= color_example @card.color.value %>
-            <%= color_example @card.color.high_value %>
-          </div>
-        <% end %>
+          <label for="card_color">Color actual: <%= @card.color.name %></label>
+        <div id="select_color_example" class="color_example">
+          <%= color_example @card.color.value %>
+          <%= color_example @card.color.high_value %>
+        </div>
       <% end %>
+      </p>
 
 
       <h2>Recursos principales</h2>
@@ -66,7 +69,7 @@
         <% end %>
       </p>
       <p><label for="card_link">Enlace principal:</label>
-        <%= f.text_field :link  %></p>
+        <%= form.text_field :link  %></p>
 
       <p><label for="card_link">Fichero principal:</label>
         <% if @card.main_file.nil? %>
@@ -84,6 +87,22 @@
 
 
 
+
+
+    </div>
+    <div class="col2">
+      <h2>Textos</h2>
+      <p>
+        <%= form.label :text, t(:text) %>
+        <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
+        <%= form.text_area :text  %>
+      </p>
+
+      <p>
+        <label for="card_content">Propiedades</label>
+        <%= form.text_area :properties, :class => 'medium'  %>
+      </p>
+
       <h2>Categorías de esta ficha</h2>
       <div id="tag_selector">
         <% for tag in @tags %>
@@ -92,22 +111,21 @@
         <% end %>
         <%= hidden_field_tag 'selected', '', {:id => 'selected' } %>
       </div>
-      <div style="clear: left" >&nbsp;</div>
 
+      <h2>Selección</h2>
+      <p><%= form.check_box :selected  %> <span>¿Mostrar en selección? </span></p>
 
-    </div>
-    <div class="col2">
-      <h2>Textos</h2>
       <p>
-        <label for="card_content">Texto</label>
+        <%= form.label :selection_position, t(:selection_position) %>
+        <%= form.radio_button :selection_position, Card::POSITION[:top] %><span>Arriba</span><br/>
+        <%= form.radio_button :selection_position, Card::POSITION[:bottom] %><span>Abajo</span>
+      </p>
+      <p>
+        <%= form.label :body, t(:selection_body) %>
         <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
-        <%= f.text_area :text  %>
+        <%= form.text_area :selection_body, :class => 'medium' %>
       </p>
 
-      <p>
-        <label for="card_content">Propiedades</label>
-        <%= f.text_area :properties  %>
-      </p>
     </div>
   <% end %>
 </div>

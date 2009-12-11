@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211164123) do
+ActiveRecord::Schema.define(:version => 20091211193110) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -20,10 +20,18 @@ ActiveRecord::Schema.define(:version => 20091211164123) do
     t.string  "title"
   end
 
+  create_table "card_images", :force => true do |t|
+    t.integer "card_id"
+    t.integer "image_id"
+    t.string  "text"
+    t.integer "pos"
+    t.string  "date"
+  end
+
   create_table "cards", :force => true do |t|
     t.string   "title"
-    t.string   "text",          :limit => 4096
-    t.string   "properties",    :limit => 1024
+    t.string   "text",               :limit => 4096
+    t.string   "properties",         :limit => 1024
     t.integer  "main_image_id"
     t.integer  "vposition"
     t.string   "start"
@@ -36,6 +44,11 @@ ActiveRecord::Schema.define(:version => 20091211164123) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+    t.integer  "slides_count",                       :default => 0
+    t.boolean  "selected",                           :default => false
+    t.integer  "selection_image_id"
+    t.string   "selection_body"
+    t.integer  "selection_position",                 :default => 0
   end
 
   add_index "cards", ["title"], :name => "index_cards_on_title"

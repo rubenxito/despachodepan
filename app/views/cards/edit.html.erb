@@ -2,7 +2,6 @@
 
 
 <div class="actions">
-  <%= selection_actions(@card) %>
   <%= (link_to 'Borrar', @card, :method => 'delete',
     :confirm => "Estás a punto de borrar la ficha '#{@card.title}' ¿Estás segura?") unless @card.id == 1%>
   <%= action_separator %>

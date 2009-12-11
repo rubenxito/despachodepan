@@ -25,7 +25,7 @@ a:hover {text-decoration: underline; color: @azul;}
 
 h1 {font-size: 200%; margin-top: 0.2em;}
 h2 {
-    font-size: 150%; margin: 0.5em 0 0.2em 0;
+    font-size: 150%; margin: 1em 0 0.2em 0;
     color: @grisoscuro; border-bottom: 2px solid @azulclaro;}
 
 /** LAYOUT **/
@@ -48,7 +48,8 @@ h2 {
     padding: 1em;
 }
 .columns {width: 100%; overflow: hidden;}
-.col2 {float: left; width: 48%; margin: 0 2% 0 0; background-color: white;}
+.col2 {float: left; width: 48%; overflow: hidden;
+      margin: 0 2% 0 0; background-color: white;}
 
 /** ELEMENTS **/
 div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
@@ -86,6 +87,7 @@ a.url {color: @azul;}
 }
 .nested form {margin: 1em;}
 form p {margin: 5px 0;}
+form p.submit {display: block; padding: 0.5em; background-color: @azulclaro;}
 form label {
     display: block; margin: 1em 0 0.2em 0; font-weight: bold;
 }
@@ -94,7 +96,7 @@ form p input[type=text] {
     width: 20em; padding: 2px;
     border: 1px solid @grisclaro;}
 textarea {width: 95%; padding: 2px; margin: 2px 5% 0 2px;}
-
+textarea.medium {height: 10em;}
 /** TABLE **/
 table {width: 100%; .round-top; margin-bottom: 1em;
 }

@@ -1,0 +1,2 @@
+class SlidePositionsController < ApplicationController
+end

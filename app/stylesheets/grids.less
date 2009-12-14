@@ -1,0 +1,84 @@
+
+@import 'reset.css';
+
+/** VARIABLES **/
+@azul: #40CAFC;
+@azulclaro: #D6F3FE;
+
+html {
+    font-size: 11px;
+    background-color: white;
+    font-family: "Verdana", sans;
+}
+
+a {text-decoration: none; color: @azul;}
+a:hover {text-decoration: underline;}
+
+/** LAYOUT **/
+#central {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: 24;
+    left: 50%;
+    top: 50%;
+}
+
+#playground {
+    position: absolute; margin-left: -500px; margin-top: -260px;
+    overflow: hidden;
+    width: 1000px;
+    height: 520px;
+}
+
+#tabs {
+    width: 865px; overflow: hidden;
+    height: 20px;
+    position: absolute; top: 0; left: 0;
+}
+
+#wrapper {
+    position: absolute; top: 19px; left: 0;
+    overflow: auto;
+    width: 865px;
+    height: 495px;
+    z-index: 50;
+}
+
+#grid {
+    background: transparent url('/images/grid2010.gif') no-repeat;
+    width: 1922px; height: 469px;
+}
+
+#tags {
+    position: absolute; left: 870px; top: 300px;
+    width: 120px;
+}
+
+/** TABS **/
+#tabs {overflow: hidden; z-index: 100;}
+#tabs  li {
+    float: left; height: 18px;
+    text-align: center; margin-right: 11px;
+    border: 1px solid @azul;
+}
+#tabs li.selected {border-bottom: 1px solid white;}
+#nav-actual {width: 47px;}
+#nav-seleccion {width: 71px;}
+#nav-indice {width: 71px;}
+#tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+
+/** GRID **/
+#grid .element {
+    position: absolute; overflow: hidden; text-indent: -1000px;
+    border: 0; padding: 0; margin: 0;
+    cursor: pointer; z-index: 400;
+}
+
+/** TAGS **/
+#tags li {display: block; width: 100%; overflow: hidden; margin: 2px 0;}
+#tags li .tag {display: block; float: left; width: 90px;}
+#tags li label {
+    display: block; float: left; width: 10px; height: 10px;
+    overflow: hidden; text-indent: -1000px; font-size: 0px;
+    border: 1px solid gray;}

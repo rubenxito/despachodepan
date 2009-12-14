@@ -6,14 +6,16 @@
   var cardIDs = [<%= @cards.map(&:id).join(',') %>];
 </script>
 
-<div id="grid">
-  <div id="content">
-    <% @cards.each do |card| %>
-      <%= pinta_card(card) if card.visible? %>
-      <%= pinta_milestones(card) if card.visible? %>
-    <% end %>
-    <div id="preview" style="display: none"></div>
-    <div id="loading" style="display: none"><div id="spinner"></div></div>
+<div id="wrapper">
+  <div id="grid">
+    <div id="content">
+      <% @cards.each do |card| %>
+        <%= pinta_card(card) if card.visible? %>
+        <%= pinta_milestones(card) if card.visible? %>
+      <% end %>
+      <div id="preview" style="display: none"></div>
+      <div id="loading" style="display: none"><div id="spinner"></div></div>
+    </div>
   </div>
 </div>
 <ul id="tags" style="">

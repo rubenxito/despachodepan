@@ -44,7 +44,7 @@ module PagesHelper
 		style = new_style(left, top, width, nil, nil)
 		style['text-align'] = 'right'
 		style['color'] = "##{card.color.value}"
-    clazz = "card card#{card.id} caption"
+    clazz = "card element card#{card.id} caption"
     content_tag :a, card.title, {:class => clazz, :id => id,
       :href => "/#{card.url}",
       :style => style.pinta}

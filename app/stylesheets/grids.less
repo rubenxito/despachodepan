@@ -58,7 +58,7 @@ a:hover {text-decoration: underline;}
 /** TABS **/
 #tabs {overflow: hidden; z-index: 100;}
 #tabs  li {
-    float: left; height: 18px;
+    float: left; height: 16px; padding-top: 2px;
     text-align: center; margin-right: 11px;
     border: 1px solid @azul;
 }
@@ -82,3 +82,20 @@ a:hover {text-decoration: underline;}
     display: block; float: left; width: 10px; height: 10px;
     overflow: hidden; text-indent: -1000px; font-size: 0px;
     border: 1px solid gray;}
+
+/** TIME PANEL **/
+#time-panel {
+    width: 1000px; height: 460px; padding: 10px 10px 0 10px;
+    border: 1px solid @azul;
+}
+
+#time-panel .line {width: 100%; overflow: hidden; margin-bottom: 10px;}
+
+#time-panel .selected {
+    float: left; height: 220px; margin-right: 10px;
+}
+
+#time-panel .selected p {width: 94%; margin-left: 3%; display: block; overflow: hidden;}
+#time-panel .selected .span {display: block; padding: 2px;}
+#time-panel .selected .tags {float: left;}
+#time-panel .selected .date {float: right;}

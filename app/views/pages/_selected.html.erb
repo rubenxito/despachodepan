@@ -1,0 +1,10 @@
+<div class="selected"
+     style="background-color: <%= c(card.color.high_value) %>; color: <%= c(card.color.value) %>;
+     width: <%= card.selection_width %>px;">
+  <%= (link_to image_tag(card.selection_image.public_filename), card.path) if card.selection_image %>
+  <p class="data">
+    <span class="category"><%= link_to card.title, card.path %></span>
+    <span class="date"><%= year_of card.start %></span>
+  </p>
+  <p class="body"><span><%= card.selection_body %></span></p>
+</div>

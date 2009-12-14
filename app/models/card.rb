@@ -6,6 +6,8 @@ class Card < ActiveRecord::Base
 	has_many :files, :class_name => 'CardFile', :dependent => :destroy
 	belongs_to :main_image, :class_name => "Image",
 		:foreign_key => :main_image_id,  :dependent => :destroy
+	belongs_to :selection_image, :class_name => "Image",
+		:foreign_key => :selection_image_id,  :dependent => :destroy
 	belongs_to :color
 	has_and_belongs_to_many :tags, :include => [:color]
 	belongs_to :main_slide, :foreign_key => :main_slide_id,
@@ -26,7 +28,11 @@ class Card < ActiveRecord::Base
 	BEGIN_YEAR = 2001
 	BLOCS_PER_YEAR = 16
 	DAYS_PER_BLOC = 365 / 16
-	
+
+  def path
+    "/#{url}"
+  end
+
 	def is_about?(tag)
 		!tags.to_a.find {|t| t.id == tag.id}.nil?
 	end
@@ -50,6 +56,10 @@ class Card < ActiveRecord::Base
 	def has_color
 		!color.nil?
 	end
+
+  def selection_width
+    self.selection_image ? self.selection_image.width : 200
+  end
 
   private
 	def parse_date(str_date)

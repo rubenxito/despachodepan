@@ -85,10 +85,6 @@
         <%= image_tag @card.main_slide.image.public_filename(:thumb)  unless @card.main_slide.nil? %>
       </div>
 
-
-
-
-
     </div>
     <div class="col2">
       <h2>Textos</h2>
@@ -125,6 +121,18 @@
         <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
         <%= form.text_area :selection_body, :class => 'medium' %>
       </p>
+      <p>
+        <label>Imágen en la selección:</label>
+        <% if @card.selection_image %>
+        <div class="thumbnail">
+          <%= link_to image_tag(@card.selection_image.public_filename(:thumb)), @card.selection_image.public_filename, :class => 'fancybox' %>
+          <span class="info">Para cambiar esta imágen, sube otra:</span>
+        </div>
+      <% else %>
+        <span class="info">Ninguna imágen para la selección. Puedes subir una:</span>
+      <% end %>
+      <%= file_field_tag :selection_image_data  %>
+      <p/>
 
     </div>
   <% end %>

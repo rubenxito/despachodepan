@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
                  :storage => :file_system,
                  :path_prefix => 'public/media/images',
                  :thumbnails => { :thumb => '100x100>' }
+
   validates_as_attachment
   
   has_many :slides, :dependent => :destroy

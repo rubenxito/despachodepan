@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.gem 'translator', :sounce => 'http://gemcutter.org'
   config.gem 'inherited_resources', :source => 'http://gemcutter.org'
   config.gem 'less'
+  config.gem 'mini_magick', :source => 'http://gemcutter.org'
 
   config.load_paths << "#{RAILS_ROOT}/lib"
   %w().each do |dir|

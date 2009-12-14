@@ -3,6 +3,10 @@ module PagesHelper
 	WIDTH = 420;
   HEIGHT = 400;
 
+  def year_of(date)
+    date.split('/').last
+  end
+
 	def style_of(image)
 		left = (WIDTH - image.width) / 2;
 		top = (HEIGHT - image.height) / 2;

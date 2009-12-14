@@ -22,8 +22,6 @@
     <div id="menu">
       <%= link_to t(:lpn), root_path, :class => 'lpn' %> >
       <%= link_to_unless_current 'fichas', cards_path %> |
-      <%= link_to_unless_current 'actual', selections_path %> |
-      <%= link_to_unless_current 'selección', selections_path %> |
       <%= link_to_unless_current 'colores', colors_path %> |
       <%= link_to_unless_current 'categorías', tags_path %> |
     </div>

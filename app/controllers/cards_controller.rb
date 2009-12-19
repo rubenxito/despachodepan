@@ -3,6 +3,10 @@ class CardsController < ApplicationController
   before_filter :authenticate
   inherit_resources
 
+  def find
+    redirect_to Card.find_by_url(params[:id])
+  end
+
   def index
     @cards = Card.all(:include => [:color, :main_image, :main_slide, :tags])
     index!
@@ -40,13 +44,13 @@ class CardsController < ApplicationController
 
   private
   def prepare_edit
+    @card = Card.find(params[:id]) if @card.nil?
     @tags = Tag.all
     @colors = Color.all
-    @slide = Slide.new
+    @photo = @card.slides.build(:rol => 'slide')
+    @news = @card.slides.build(:rol => 'news')
+    @selected = @card.slides.build(:rol => 'selection')
     @card_file = CardFile.new
   end
 
-  def data?(name)
-    !params[name].nil? && params[name].size > 0
-  end
 end

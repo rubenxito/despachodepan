@@ -11,7 +11,12 @@ class ApplicationController < ActionController::Base
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
       (RAILS_ENV == 'test' && username == 'user' && password == 'secret') ||
-      (APP_CONFIG['users'].include?(username) && password == APP_CONFIG['password'])
+        (APP_CONFIG['users'].include?(username) && password == APP_CONFIG['password'])
     end
   end
+
+  def data?(name)
+    !params[name].nil? && params[name].size > 0
+  end
+
 end

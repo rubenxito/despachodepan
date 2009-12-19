@@ -1,0 +1,33 @@
+
+<div class="nested">
+  <h3><%= form_label %></h3>
+  <% form_for slide, :html => {:multipart => true}  do |form| %>
+    <%= form.hidden_field :rol %>
+    <%= form.hidden_field :card_id %>
+    <p>
+      <% if slide.image %>
+        <%= image_tag slide.image.public_filename %>
+        <span class="info">Para cambiar esta foto, simplemente sube otra. <br/>Si quieres conservar esta, deja el campo "Foto" vacío.</span>
+      <% end %>
+      <%= form.label :photo_data, 'Foto' %>
+      <%= file_field_tag :photo_data  %>
+    </p>
+    <p>
+      <%= form.label :body, t(:body) %>
+      <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
+      <%= form.text_area :body, :rows => 3  %>
+    </p>
+    <p>
+      <%= form.label :date, t(:slide_date) %>
+      <%= form.text_field :date %>
+    </p>
+    <% if slide.extra_meaning %>
+      <p>
+        <%= form.label :extra, t(slide.extra_meaning) %>
+        <%= form.text_field :extra %>
+      </p>
+    <% end %>
+
+    <p><%= submit_tag form_submit %></p>
+  <% end %>
+</div>

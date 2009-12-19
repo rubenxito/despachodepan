@@ -1,0 +1,31 @@
+
+<table>
+  <thead>
+    <tr>
+      <td>Imágen</td>
+      <td><%= t(:body) %></td>
+      <td>Posición</td>
+      <td>Fecha</td>
+      <td>Tipo</td>
+      <td/>
+    </tr>
+  </thead>
+  <tbody>
+    <% slides.each do |slide| %>
+      <tr>
+        <td><%= image_tag slide.image.public_filename(:thumb)  unless slide.image.nil? %></td>
+        <td><%= slide.body %></td>
+        <td><%= slide.pos %>
+          <%= link_to image_tag('move_up.png'), '#' %>
+          <%= link_to image_tag('move_down.png'), '#' %> </td>
+        <td><%= slide.date %></td>
+        <td><%= slide.extra %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_slide_path(slide) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

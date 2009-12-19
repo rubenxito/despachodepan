@@ -40,6 +40,11 @@ es:
   cards:
     index:
       title: "Todas las fichas"
+    edit:
+      slide: "Añadir nueva foto"
+      selection: "Añadir a la selección"
+      news: "Añadir a actual"
+      create_slide: "Añadir"
     form:
       text: "Texto:"
       color_id: "Cambiar color a: "
@@ -71,11 +76,27 @@ es:
       body: "Texto"
       image: "Imágen"
 
+  slides:
+    slides:
+      body: "Texto"
+      slide: "Fotografías"
+      selection: "Selección"
+    edit:
+      slide: "Editar foto"
+      selection: "Editar selección"
+      news: "Editar actual"
+    form:
+      body: "Texto"
+      slide_date: "Fecha"
+      mean_main: "Principal"
+      mean_position: "Posición"
+
   layouts:
     admin:
-      CardsController: fichas
-      ColorsController: colores
-      TagsController: categorías
-      SelectionsController: selección
+      CardsController: "fichas"
+      ColorsController: "colores"
+      TagsController: "categorías"
+      SelectionsController: "selección"
+      SlidesController: "imágenes"
       
       

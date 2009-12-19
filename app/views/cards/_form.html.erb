@@ -1,6 +1,6 @@
-<div class="columns">
+<% form_for @card, :html => {:multipart => true}  do |form| %>
+  <div class="columns">
 
-  <% form_for @card, :html => {:multipart => true}  do |form| %>
     <p class="submit"><%= form.submit t(:update) %></p>
 
     <div class="col2">
@@ -68,24 +68,12 @@
             :method => 'post', :confirm => '¿quieres borrar la imágen principal?' %>
         <% end %>
       </p>
-      <p><label for="card_link">Enlace principal:</label>
-        <%= form.text_field :link  %></p>
-
-      <p><label for="card_link">Fichero principal:</label>
-        <% if @card.main_file.nil? %>
-          no especificado
-        <% else -%>
-          <%= image_tag 'file.gif' %>
-          <%= @card.main_file.title%>: <%= @card.main_file.filename %>
-          <%= link_to 'Quitar fichero principal', :action => 'remove_main_file', :id => @card %>
-        <% end -%>
+      <p>
+        <label for="card_link">Enlace principal:</label>
+        <%= form.text_field :link  %>
       </p>
-      <label for="card_slide">Fotografía principal: </label>
-      <div id="main_image" style="width: 45%; overflow: hidden;">
-        <%= image_tag @card.main_slide.image.public_filename(:thumb)  unless @card.main_slide.nil? %>
-      </div>
-
     </div>
+
     <div class="col2">
       <h2>Textos</h2>
       <p>
@@ -107,33 +95,8 @@
         <% end %>
         <%= hidden_field_tag 'selected', '', {:id => 'selected' } %>
       </div>
-
-      <h2>Selección</h2>
-      <p><%= form.check_box :selected  %> <span>¿Mostrar en selección? </span></p>
-
-      <p>
-        <%= form.label :selection_position, t(:selection_position) %>
-        <%= form.radio_button :selection_position, Card::POSITION[:top] %><span>Arriba</span><br/>
-        <%= form.radio_button :selection_position, Card::POSITION[:bottom] %><span>Abajo</span>
-      </p>
-      <p>
-        <%= form.label :body, t(:selection_body) %>
-        <span class="info">Puedes escribir formato <a href="http://hobix.com/textile/quick.html" target="_blank">Textile</a></span>
-        <%= form.text_area :selection_body, :class => 'medium' %>
-      </p>
-      <p>
-        <label>Imágen en la selección:</label>
-        <% if @card.selection_image %>
-        <div class="thumbnail">
-          <%= link_to image_tag(@card.selection_image.public_filename(:thumb)), @card.selection_image.public_filename, :class => 'fancybox' %>
-          <span class="info">Para cambiar esta imágen, sube otra:</span>
-        </div>
-      <% else %>
-        <span class="info">Ninguna imágen para la selección. Puedes subir una:</span>
-      <% end %>
-      <%= file_field_tag :selection_image_data  %>
-      <p/>
-
     </div>
-  <% end %>
-</div>
+
+    <p class="submit"><%= form.submit t(:update) %></p>
+  </div>
+<% end %>

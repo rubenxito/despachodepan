@@ -69,7 +69,7 @@
     <% @card.slides.each do |slide| %>
       <div id="slideImage<%= slide.pos + 1 %>" class="slide" style="display: none">
         <%= image_tag slide.image.public_filename,
-          :alt => slide.text.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
+          :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
         <div class="slide_text">
           <%= textilize slide.text %>
         </div>

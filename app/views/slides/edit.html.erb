@@ -1,0 +1,9 @@
+
+<%= title "Editar imágen de '#{@slide.card.title}'" %>
+
+<div class="actions">
+  <%= link_to 'Cancelar', card_path(@slide.card) %>
+</div>
+
+
+<%= render :partial => 'form', :locals => {:slide => @slide, :form_label => t(@slide.rol), :form_submit => 'Modificar'} %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211193110) do
+ActiveRecord::Schema.define(:version => 20091215150812) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(:version => 20091211193110) do
     t.string  "text"
     t.integer "pos"
     t.string  "date"
+    t.string  "rol"
+    t.string  "body"
+    t.string  "extra"
   end
 
   create_table "tags", :force => true do |t|

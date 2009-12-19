@@ -1,13 +1,13 @@
 <div id="wrapper">
   <div id="time-panel" style="width: <%= @selection.width %>px;">
     <div class="line">
-      <% @selection.top.each do |card| %>
-        <%= render :partial => 'selected', :locals => {:card => card} %>
+      <% @selection.top.each do |slide| %>
+        <%= render :partial => 'selected', :object => slide %>
       <% end %>
     </div>
     <div class="line">
-      <% @selection.bottom.each do |card| %>
-        <%= render :partial => 'selected', :locals => {:card => card} %>
+      <% @selection.bottom.each do |slide| %>
+        <%= render :partial => 'selected', :object => slide %>
       <% end %>
     </div>
   </div>

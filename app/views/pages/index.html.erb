@@ -1,10 +1,15 @@
-<script type="text/javascript">
-  var tagToCardIDs = {};
-<% for tag in @tags %>
-    tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
+<% content_for :headed do %>
+  <%= javascript_include_tag 'jquery.ba-bbq.min','lpn.tags', 'lpn.thumbs' %>
+
+  <script type="text/javascript">
+    var scrollTime = <%= @scroll_time %>
+    var tagToCardIDs = {};
+  <% for tag in @tags %>
+      tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
+  <% end %>
+    var cardIDs = [<%= @cards.map(&:id).join(',') %>];
+  </script>
 <% end %>
-  var cardIDs = [<%= @cards.map(&:id).join(',') %>];
-</script>
 
 <div id="wrapper">
   <div id="grid">

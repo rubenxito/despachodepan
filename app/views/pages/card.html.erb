@@ -12,11 +12,11 @@
 <% end -%>
 
 
-<div id="title" style="width: <%= (@card.title.length * 0.80)  %>em;">
-  <div class="tab" style="<%= border_tab @card.color.value %>" >
+<% if @card.id != 1 %>
+  <div id="title" style=" <%= border_tab @card.color.value %>">
     <span style="color: <%= "##{@card.color.value}" %>;"><%= @card.title %></span>
   </div>
-</div>
+<% end %>
 
 <div id="card" style="	border: 1px solid <%= "##{@card.color.value}" %>;">
   <div id="properties" class="card_element"

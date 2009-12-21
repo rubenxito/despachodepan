@@ -12,16 +12,20 @@
 <%= render 'form' %>
 
 <div class="columns">
+  <a name="fotos"> </a>
   <div class="col2">
     <h2>Fotografías</h2>
     <%= render '/slides/slides', :object => @card.photos %>
     <%= render :partial => '/slides/form', :locals => {:card => @card, :slide => @photo, :form_label => t(@photo.rol), :form_submit => 'Añadir' } %>
   </div>
   <div class="col2">
+    <a name="archivos"> </a>
     <%= render 'files' %>
+    <a name="seleccion"> </a>
     <h2>Selección</h2>
     <%= render '/slides/slides', :object => @card.selections %>
     <%= render :partial => '/slides/form', :locals => {:slide => @selected, :form_label => t(@selected.rol), :form_submit => 'Añadir'} %>
+    <a name="actual"> </a>
     <h2>Actual</h2>
     <%= render '/slides/slides', :object => @card.news %>
     <%= render :partial => '/slides/form', :locals => {:slide => @news, :form_label => t(@news.rol), :form_submit => 'Añadir'} %>

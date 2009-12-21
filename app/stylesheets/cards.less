@@ -1,6 +1,9 @@
 
 @import 'reset.css';
 
+/** VARIABLES **/
+@azul: #40CAFC;
+
 body {
     font-size: 11px;
     background-color: white;
@@ -64,46 +67,35 @@ a {
     z-index: 200;
 }
 
-div.tab {
-    text-align: left;
-    background-color: white;
-    border-top: 1px solid #40CAFC;
-    border-left: 1px solid #40CAFC;
-    border-right: 1px solid #40CAFC;
-    height: 100%;
-    width: 100%;
-}
-
-div.tab span {
-    display: block;
-    padding: 1px 9px;
-}
-
-div.tab span a {
-    color: #40CAFC;
-}
-
-#panaderia a {
-    color: #40CAFC;
-}
-
-#index {
+#tabs {
     position: absolute;
-    top: -260px;
-    left: -480px;
-    width: 50px;
-    height: 23px;
-    border-bottom: 1px solid #40CAFC;
+    top: -260px; height: 30px;
+    left: -480px; width: 963px;
+    z-index: 2000;
 }
+#tabs  li {
+    float: left; height: 15px; padding-bottom: 2px;
+    text-align: center; margin-right: 11px;
+    border: 1px solid @azul; color: @azul;
+}
+#tabs li a {color: @azul;}
+#tabs li.selected {border-bottom: 1px solid white; height: 15px; }
+#nav-actual {width: 47px;}
+#nav-seleccion {width: 71px;}
+#nav-indice {width: 71px;}
+#tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+
+
 
 #title {
     position: absolute;
     top: -260px;
-    left: -420px;
-    height: 18px;
+    left: -252px;
+    height: 17px;
     /*	width: 200px;	*/
     border-bottom: 1px solid white;
     z-index: 220;
+    padding: 0 6px;
 }
 
 .card_element {

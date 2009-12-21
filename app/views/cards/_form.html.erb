@@ -1,7 +1,13 @@
 <% form_for @card, :html => {:multipart => true}  do |form| %>
   <div class="columns">
 
-    <p class="submit"><%= form.submit t(:update) %></p>
+    <p class="submit">
+<%= form.submit t(:update) %><span>&nbsp; O ir a sección: </span>
+      <%= link_to 'Fotografías', '#fotos' %>
+      <%= link_to 'Ficheros', '#ficheros' %>
+      <%= link_to 'Selección', '#seleccion' %>
+      <%= link_to 'Actual', '#actual' %>
+    </p>
 
     <div class="col2">
       <h2>Valores generales</h2>

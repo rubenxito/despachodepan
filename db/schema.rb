@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20091215150812) do
     t.string  "title"
   end
 
-  create_table "card_images", :force => true do |t|
-    t.integer "card_id"
-    t.integer "image_id"
-    t.string  "text"
-    t.integer "pos"
-    t.string  "date"
-  end
-
   create_table "cards", :force => true do |t|
     t.string   "title"
     t.string   "text",               :limit => 4096
@@ -73,16 +65,6 @@ ActiveRecord::Schema.define(:version => 20091215150812) do
     t.integer "size"
     t.integer "width"
     t.integer "height"
-  end
-
-  create_table "selections", :force => true do |t|
-    t.integer  "card_id"
-    t.text     "position"
-    t.text     "body"
-    t.boolean  "active",     :default => false
-    t.integer  "image_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "slides", :force => true do |t|

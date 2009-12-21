@@ -1,0 +1,9 @@
+<div id="wrapper">
+  <div id="time-panel" style="width: <%= @actual.width %>px;">
+    <div class="line">
+      <% @actual.news.each do |slide| %>
+        <%= render :partial => 'actual', :object => slide %>
+      <% end %>
+    </div>
+  </div>
+</div>

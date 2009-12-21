@@ -15,6 +15,10 @@ class Slide < ActiveRecord::Base
     "card_id = #{card_id} AND rol = #{quote_value(rol)}"
   end
 
+  def width
+    self.image ? self.image.width : 250
+  end
+
   def extra_meaning
     case self.rol
     when 'selection'

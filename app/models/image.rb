@@ -6,6 +6,6 @@ class Image < ActiveRecord::Base
 
   validates_as_attachment
   
-  has_many :slides, :dependent => :destroy
+  has_many :slides
   has_many :cards, :through => :slides
 end

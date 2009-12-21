@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.lapanaderia '/lapanaderia', :controller => 'pages', :action => 'lapanaderia'
   map.indice '/indice', :controller => 'pages', :action => 'indice'
   map.seleccion '/seleccion', :controller => 'pages', :action => 'selection'
+  map.actual '/actual', :controller => 'pages', :action => 'actual'
 
   map.resources(:slides, :path_prefix => 'admin') do |slide|
     slide.resources :slide_positions, :path_prefix => 'admin'

@@ -1,0 +1,11 @@
+<div class="news"
+     style="background-color: <%= c(actual.card.color.high_value) %>;
+     color: <%= c(actual.card.color.value) %>;
+     width: <%= actual.width %>px;">
+  <%= (link_to image_tag(actual.image.public_filename), actual.card.path) if actual.image %>
+  <p class="data">
+    <span class="category"><%= link_to actual.card.title, actual.card.path %></span>
+    <span class="date"><%= year_of actual.date %></span>
+  </p>
+  <p class="body"><span><%= actual.body %></span></p>
+</div>

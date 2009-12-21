@@ -20,6 +20,11 @@ class PagesController < ApplicationController
     render :action => 'selection', :layout => 'grids'
   end
 
+  def actual
+    @actual = Actual.new
+    render :action => 'actual', :layout => 'grids'
+  end
+
 	def thumb
 		@slide = Slide.find(params[:id])
 		render :action => 'thumb', :layout => false

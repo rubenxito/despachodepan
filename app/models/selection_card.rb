@@ -16,9 +16,10 @@ class SelectionCard
 
   def width
     if !@width
-      max_top = top.each.map{|slide| slide.image.width + 10}.inject {|sum, n| sum + n }
-      max_bottom = bottom.each.map{|slide| slide.image.width + 10}.inject {|sum, n| sum + n }
+      max_top = top.each.map{|slide| slide.width + 10}.inject {|sum, n| sum + n }
+      max_bottom = bottom.each.map{|slide| slide.width + 10}.inject {|sum, n| sum + n }
       @width = max_top > max_bottom ? max_top : max_bottom
+      @width = @width <  843 ? 843 : @width
     end
     @width
   end

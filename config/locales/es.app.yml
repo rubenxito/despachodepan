@@ -5,7 +5,12 @@ es:
   create: "Crear"
   update: "Guardar"
   modify: "Editar"
-  
+
+  slide:
+    extra:
+      on: " "
+      onmain: "Principal"
+
   activerecord:
     models:
       card: "La ficha"
@@ -34,6 +39,14 @@ es:
     selections:
       update:
         notice: "Bien!! La selección ha sido modificada"
+    slides:
+      update:
+        notice: "Bien!! Hemos guardado tus cambios"
+      destroy:
+        notice: "Pues nada, nos lo hemos cargado"
+      create:
+        notice: "Bien!! Añadido a la ficha"
+
 
 
   lpn: 'l a  p a n a d e r í a '

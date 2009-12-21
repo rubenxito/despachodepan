@@ -4,6 +4,11 @@ class SlidesController < ApplicationController
   inherit_resources
   actions :all, :except => [:new]
 
+  def index
+    @slides = Slide.all(:include => :image)
+    index!
+  end
+
   def create
     create! do |success, failure|
       success.html do
@@ -20,6 +25,12 @@ class SlidesController < ApplicationController
         save_image
         redirect_to @slide.card
       end
+    end
+  end
+
+  def destroy
+    destroy! do |format|
+      format.html {redirect_to @slide.card}
     end
   end
 

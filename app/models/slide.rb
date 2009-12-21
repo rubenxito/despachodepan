@@ -31,5 +31,15 @@ class Slide < ActiveRecord::Base
       nil
     end
   end
+
+  def extra_values
+    case self.rol
+    when 'selection'
+      {"Arriba" => 'top', "Abajo" => 'bottom'}
+    when 'slide'
+      {"Principal" => 'main', "" => ''}
+    end
+  end
+
 end
 

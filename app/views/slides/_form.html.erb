@@ -24,7 +24,7 @@
     <% if slide.extra_meaning %>
       <p>
         <%= form.label :extra, t(slide.extra_meaning) %>
-        <%= form.text_field :extra %>
+        <%= form.select :extra, slide.extra_values %>
       </p>
     <% end %>
 

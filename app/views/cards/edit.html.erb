@@ -13,13 +13,13 @@
 
 <div class="columns">
   <a name="fotos"> </a>
-  <div class="col2">
+  <div class="col2 claro">
     <h2>Fotografías</h2>
     <%= render '/slides/slides', :object => @card.photos %>
     <%= render :partial => '/slides/form', :locals => {:card => @card, :slide => @photo, :form_label => t(@photo.rol), :form_submit => 'Añadir' } %>
   </div>
   <div class="col2">
-    <a name="archivos"> </a>
+    <a name="ficheros"> </a>
     <%= render 'files' %>
     <a name="seleccion"> </a>
     <h2>Selección</h2>

@@ -11,6 +11,7 @@ es:
       ond: ""
       ondmain: "Principal"
       ondtop: "arriba"
+      ondbottom: "abajo"
       fecha_slide: "Cuadradito"
       fecha_news: "algo"
       fecha_selection: "Fecha"

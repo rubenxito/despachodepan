@@ -32,7 +32,7 @@ module PagesHelper
 	def pinta_milestones(card)
 		result = ""
 		begin_column = card.begin_column
-		for slide in card.slides
+		for slide in card.photos
 			pinta_slide(card, slide, begin_column, result) unless slide.date.blank? || slide.date.to_i == 0
 		end
 		result.to_s

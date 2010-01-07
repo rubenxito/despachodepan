@@ -23,7 +23,8 @@
     }
 
     function show(id, element) {
-        //                if (id != currentId) return;
+        // you get too late, baby
+        if (id != currentId) return;
 
         var preview = $('#preview');
         var left = parseInt(element.css('left')) + 12;
@@ -54,6 +55,7 @@
         $(".preview").hover(function() {
             var self = $(this);
             var id = self.attr('id');
+            currentId = id;
             if (cache[id] != null) {
                 showCached(id, self)
             } else {

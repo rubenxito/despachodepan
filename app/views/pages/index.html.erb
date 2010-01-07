@@ -8,6 +8,17 @@
       tagToCardIDs[<%= tag.id -%>] = [<%= tag_ids tag %>];
   <% end %>
     var cardIDs = [<%= @cards.map(&:id).join(',') %>];
+
+    $(function() {
+        if (scrollTime == 0) {
+            $("#wrapper").attr('scrollLeft', 1300);
+        } else {
+            $("#wrapper").animate({
+                scrollLeft: 1200
+            }, scrollTime, "swing", function() {});
+        }
+    });
+
   </script>
 <% end %>
 

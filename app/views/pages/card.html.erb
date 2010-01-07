@@ -4,6 +4,10 @@
     #slide_controls a.selected {
       color: <%= c @card.color.value %>;
     }
+
+    #tabs li {
+      border-bottom: 1px solid <%= c @card.color.value %>;
+    }
   </style>
   <script type="text/javascript">
     var first_image = <%= @card.slides.first.id %>;

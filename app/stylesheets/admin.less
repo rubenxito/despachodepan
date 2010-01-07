@@ -110,6 +110,26 @@ table tr {border-bottom: 1px solid @azulclaro;}
 table td {padding: 0.4em 0em 0.3em 0.2em;}
 table td.title {width: 20em;}
 table td.title a {display: block;}
+table td.title a.edit {font-size: 100%; }
+table td.title a.url {color: @azulclaro;}
+table td.title a.url:hover {color: @azul;}
 table td a {color: black; }
 table td.actions {font-size: 80%;}
 table td.actions a {background-color: @azulblanco; float: right;}
+
+/** TAGS **/
+
+#tag_selector {
+    width: 100%;
+}
+
+#tag_selector a {
+    display: block; float: left; padding: 0.5em 1em; margin: 0.5em 1em 0 0;
+    background-color: #efefef; color: @azul; .round;
+}
+#tag_selector a:hover {background-color: @azulclaro;}
+
+#tag_selector a.selected {
+    background-color: @azul; color: white;
+}
+#tag_selector a.selected:hover {}

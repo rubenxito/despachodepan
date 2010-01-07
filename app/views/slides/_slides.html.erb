@@ -5,7 +5,7 @@
       <td>Imágen</td>
       <td><%= t(:body) %></td>
       <td>Posición</td>
-      <td>Fecha</td>
+      <td><%= t("slide.extra.fecha_#{label}") %> </td>
       <td></td>
       <td>Tipo</td>
       <td/>
@@ -20,7 +20,7 @@
           <%= link_to image_tag('move_up.png'), '#' %>
           <%= link_to image_tag('move_down.png'), '#' %> </td>
         <td><%= slide.date %></td>
-        <td><%= t("slide.extra.on#{slide.extra}") if slide.extra_meaning %></td>
+        <td><%= t("slide.extra.ond#{slide.extra}") if slide.extra_meaning %></td>
         <td class="actions">
           <%= link_to 'Borrar', slide_path(slide), :method => :delete, :confirm => "Estás a punto de borrar un elemento de #{t(slide.rol)}. ¿Segura?! :-o" %>
           <%= link_to 'Editar', edit_slide_path(slide) %>

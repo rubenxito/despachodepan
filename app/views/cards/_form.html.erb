@@ -94,12 +94,13 @@
       </p>
 
       <h2>Categorías de esta ficha</h2>
+
       <div id="tag_selector">
-        <% for tag in @tags %>
+        <% @tags.each do |tag| %>
           <% clazz = @card.is_about?(tag) ? 'selected' : '' %>
           <%= link_to tag.name, '#', {:id => "tag#{tag.id}", :class => clazz }  %>
         <% end %>
-        <%= hidden_field_tag 'selected', '', {:id => 'selected' } %>
+        <%= hidden_field_tag 'card[selected_tags]', '', {:id => 'selected' } %>
       </div>
     </div>
 

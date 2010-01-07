@@ -2,8 +2,29 @@
 
     $(function() {
         setTimeout("$('.flash').fadeOut(500);", 2000)
-        
-    })
+    });
+
+    $(function(){
+        $("#tag_selector a").click(function() {
+            $(this).toggleClass("selected");
+            return false;
+        });
+
+        $("form.edit_card").submit(function(e) {
+            calc_selected_tags();
+        });
+
+    });
+
+
+    function calc_selected_tags() {
+        var selectedString = "";
+        $("#tag_selector a.selected").each(function() {
+            selectedString += this.id;
+        });
+        $("#selected").val(selectedString);
+    }
+
 
     $.fn.update = function(name, params) {
         return this.each(function() {

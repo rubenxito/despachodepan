@@ -68,6 +68,12 @@ class Card < ActiveRecord::Base
     self.selection_image ? self.selection_image.width : 200
   end
 
+  # FIXME: no muy ruby, la verdad
+  def selected_tags=(data)
+    self.tags.clear
+    data.split('tag').each {|id| self.tags << Tag.find(id) if id.length > 0}
+  end
+
   private
 	def parse_date(str_date)
     a = str_date.split('/').map{|str| str.to_i}

@@ -25,8 +25,9 @@ class CardsController < ApplicationController
         @card.selection_image.destroy if @card.selection_image
         image = Image.create(:uploaded_data => params[:selection_image_data])
         @card.update_attribute(:selection_image_id, image.id)
-        redirect_to edit_card_path(@card)
       end
+      @card.touch
+      redirect_to edit_card_path(@card)
     else
       prepare_edit
       render :action => 'edit'

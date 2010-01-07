@@ -8,8 +8,12 @@ es:
 
   slide:
     extra:
-      on: "eepepe"
-      onmain: "Principal"
+      ond: ""
+      ondmain: "Principal"
+      ondtop: "arriba"
+      fecha_slide: "Cuadradito"
+      fecha_news: "algo"
+      fecha_selection: "Fecha"
 
   activerecord:
     models:

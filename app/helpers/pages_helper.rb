@@ -55,7 +55,7 @@ module PagesHelper
 	end
 
 	def pinta_main(card)
-		id = "main:#{card.main_slide_id}-#{card.id}"
+		id = "main-#{card.main_slide_id}-#{card.id}"
 		extra = card.main_slide.nil? ? "" : "preview"
 		extra = extra + " blank" if !card.link.blank? || !card.main_file.nil?
 		top = card.vposition * BLOC_SIZE
@@ -68,13 +68,13 @@ module PagesHelper
 	end
 
 	def pinta_slide(card, slide, begin_column, memo)
-		id = "milestone:#{slide.id}-#{card.id}"
+		id = "milestone-#{slide.id}-#{card.id}"
 		left = (begin_column + slide.date.to_i) * BLOC_SIZE
 		top = card.vposition * BLOC_SIZE
 		style = new_style(left, top, BLOC_SIZE - 4, BLOC_SIZE - 4, 'white')
     style['border'] = "2px solid ##{card.color.value};"
 		style['font-size'] = '1px'
-    clazz = "card element milestone card#{card.id}"
+    clazz = "card element milestone preview card#{card.id}"
     memo << content_tag(:a, ' ', {:class => clazz, :id => id, 
         :href => "/#{card.url}#/imagen=#{slide.pos}",
         :style => style.pinta})

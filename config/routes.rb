@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.indice '/indice', :controller => 'pages', :action => 'indice'
   map.seleccion '/seleccion', :controller => 'pages', :action => 'selection'
   map.actual '/actual', :controller => 'pages', :action => 'actual'
+  map.thumb '/thumb/:id', :controller => 'pages', :action => 'thumb'
 
   map.resources(:slides, :path_prefix => 'admin') do |slide|
     slide.resources :slide_positions, :path_prefix => 'admin'

@@ -38,7 +38,8 @@ namespace :config do
     %w[database.yml despachodepan.yml].each do |f|
       run "ln -nsf #{shared_path}/config/#{f} #{release_path}/config/#{f}"
     end
-     run "ln -sf #{shared_path}/media #{release_path}/public/media"
+     run "ln -sf #{shared_path}/media/images #{release_path}/public/media/images"
+     run "ln -sf #{shared_path}/media/files #{release_path}/public/media/files"
      run "ln -sf #{shared_path}/cache #{release_path}/public/cache"
   end
 end

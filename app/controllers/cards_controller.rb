@@ -22,6 +22,11 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     if @card.update_attributes(params[:card])
       flash[:notice] = 'Bien!! Ficha guardada!'
+      if data?(:main_data)
+        @card.main_image.destroy if @card.main_image
+        image = Image.create(:uploaded_data => params[:main_data])
+        @card.update_attribute(:main_image_id, image.id)
+      end
       if data?(:selection_image_data)
         @card.selection_image.destroy if @card.selection_image
         image = Image.create(:uploaded_data => params[:selection_image_data])

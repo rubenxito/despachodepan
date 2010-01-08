@@ -2,7 +2,7 @@
   <div class="columns">
 
     <p class="submit">
-<%= form.submit t(:update) %><span>&nbsp; O ir a sección: </span>
+      <%= form.submit t(:update) %><span>&nbsp; O ir a sección: </span>
       <%= link_to 'Fotografías', '#fotos' %>
       <%= link_to 'Ficheros', '#ficheros' %>
       <%= link_to 'Selección', '#seleccion' %>
@@ -66,13 +66,13 @@
       <p><label for="card_main_image">Imagen principal</label>
         <span class="info">usa imágenes a 72dpi de resolución.
           la imágen principal debe tener un máximo de 000px de ancho por 000px de alto</span>
-        <% if @card.main_image.nil? %>
-          <%= file_field_tag :main_data  %>
-        <% else %>
+
+        <% if !@card.main_image.nil? %>
           <%= image_tag @card.main_image.public_filename %>
-          <%= link_to 'borra esta imágen si quieres cambiarla', '#',
-            :method => 'post', :confirm => '¿quieres borrar la imágen principal?' %>
+        <span class="info">Para cambiar esta imágen, sube otra.</span>
         <% end %>
+        <br/>
+        <%= file_field_tag :main_data  %>
       </p>
       <p>
         <label for="card_link">Enlace principal:</label>

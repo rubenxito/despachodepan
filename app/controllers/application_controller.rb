@@ -19,4 +19,18 @@ class ApplicationController < ActionController::Base
     !params[name].nil? && params[name].size > 0
   end
 
+  def expire_page_cache(card)
+    card.touch
+    expire_page :controller => 'pages', :action => 'card', :id => card.url
+    [:index, :indice, :lapanaderia, :selection, :actual].each do |action|
+      url = url_for(:controller => 'pages', :action => action)
+      logger.debug "Expire: #{url}"
+      expire_page :controller => 'pages', :action => action
+    end
+
+    card.photos.each do |slide|
+      expire_page :controller => 'pages', :action => 'thumb', :id => slide.id
+    end
+  end
+
 end

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  caches_page :index, :indice, :lapanaderia, :card, :selection, :actual, :thumb
+  caches_page :index, :indice, :lapanaderia, :card, :thumb, :actual, :selection
 
 	def index
 		prepare_index(2000)

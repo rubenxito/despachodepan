@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 
   def new
     card = Card.create(:title => 'ficha sin título')
-    expire_cache(card)
+    expire_page_cache(card)
     redirect_to edit_card_path(card)
   end
 
@@ -22,6 +22,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     if @card.update_attributes(params[:card])
       flash[:notice] = 'Bien!! Ficha guardada!'
+      expire_page_cache(@card)
       if data?(:main_data)
         @card.main_image.destroy if @card.main_image
         image = Image.create(:uploaded_data => params[:main_data])
@@ -32,8 +33,6 @@ class CardsController < ApplicationController
         image = Image.create(:uploaded_data => params[:selection_image_data])
         @card.update_attribute(:selection_image_id, image.id)
       end
-      @card.touch
-      expire_cache(@card)
       redirect_to edit_card_path(@card)
     else
       prepare_edit
@@ -61,15 +60,6 @@ class CardsController < ApplicationController
     @card_file = CardFile.new
   end
 
-  def expire_cache(card)
-    expire_page :controller => 'pages', :action => 'card', :id => card.url
-    [:index, :indice, :lapanaderia, :selection, :actual].each do |action|
-      expire_page :controller => 'pages', :action => action.to_s
-    end
 
-    card.photos.each do |slide|
-      expire_page :controller => 'pages', :action => 'thumb', :id => slide.id
-    end
-  end
 
 end

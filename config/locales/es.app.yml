@@ -13,7 +13,7 @@ es:
       ondtop: "arriba"
       ondbottom: "abajo"
       fecha_slide: "Cuadradito"
-      fecha_news: "algo"
+      fecha_news: "Fecha"
       fecha_selection: "Fecha"
 
   activerecord:

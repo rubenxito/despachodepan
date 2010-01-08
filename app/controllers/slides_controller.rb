@@ -9,6 +9,7 @@ class SlidesController < ApplicationController
     create! do |success, failure|
       success.html do
         save_image
+        @slide.card.touch
         redirect_to @slide.card
       end
       failure.html { render :text => 'lo siento, algo ha ido mal. vuelve a intentarlo...'}
@@ -19,6 +20,7 @@ class SlidesController < ApplicationController
     update! do |success, failure|
       success.html do
         save_image
+        @slide.card.touch
         redirect_to @slide.card
       end
     end
@@ -26,6 +28,7 @@ class SlidesController < ApplicationController
 
   def destroy
     destroy! do |format|
+      @slide.card.touch
       format.html {redirect_to @slide.card}
     end
   end

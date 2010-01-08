@@ -2,10 +2,10 @@
      style="background-color: <%= c(actual.card.color.high_value) %>;
      color: <%= c(actual.card.color.value) %>;
      width: <%= actual.width %>px;">
-  <%= (link_to image_tag(actual.image.public_filename), actual.card.path) if actual.image %>
-  <p class="data">
-    <span class="category"><%= link_to actual.card.title, actual.card.path %></span>
-    <span class="date"><%= year_of actual.date %></span>
+  <p class="text">
+    <span class="date"><%= year_of actual.date %> <% actual.card.tags.each do |tag|  %><%= tag.name %> <% end %></span>
+    <span class="title"><%= link_to actual.card.title, actual.card.path, :style => "color: #{c(actual.card.color.value)};" %></span>
+    <span class="body"><%= actual.body %></span>
   </p>
-  <p class="body"><span><%= actual.body %></span></p>
+  <%= (link_to image_tag(actual.image.public_filename), actual.card.path) if actual.image %>
 </div>

@@ -6,7 +6,7 @@ class Actual
   def news
     @news ||= Slide.all(:conditions => {
         :rol => 'news'
-      }, :order => 'date ASC', :include => :image)
+      }, :order => 'rev_date ASC', :include => :image)
   end
 
   def width

@@ -4,14 +4,14 @@ class SelectionCard
     @top ||= Slide.all(:conditions => {
         :rol => 'selection',
         :extra => 'top'
-      }, :order => 'date ASC', :include => :image)
+      }, :order => 'rev_date ASC', :include => :image)
   end
 
   def bottom
     @bottom ||= Slide.all(:conditions => {
         :rol => 'selection',
         :extra => 'bottom'
-      }, :order => 'date ASC', :include => :image)
+      }, :order => 'rev_date ASC', :include => :image)
   end
 
   def width

@@ -9,6 +9,8 @@ class Slide < ActiveRecord::Base
   named_scope :selected, :conditions => {:rol => 'selection'}
   named_scope :news, :conditions => {:rol => 'news'}
 
+  before_save :reverse_date
+
   # http://zilkey.com/2008/3/24/advanced-acts_as_list-scope-with-multiple-columns
   # #{connection.quote_column_name("rol")}
   def scope_condition
@@ -39,6 +41,11 @@ class Slide < ActiveRecord::Base
     when 'slide'
       {"Principal" => 'main', "" => ''}
     end
+  end
+
+  private
+  def reverse_date
+    self.rev_date = self.date.split('/').reverse.join('/')
   end
 
 end

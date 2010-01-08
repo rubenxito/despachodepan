@@ -1,30 +1,73 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>The change you wanted was rejected (422)</title>
-	<style type="text/css">
-		body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-		div.dialog {
-			width: 25em;
-			padding: 0 4em;
-			margin: 4em auto 0 auto;
-			border: 1px solid #ccc;
-			border-right-color: #999;
-			border-bottom-color: #999;
-		}
-		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-	</style>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Error</title>
+        <style type="text/css">
 
-<body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
-  </div>
-</body>
+            html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}
+
+            html {    font-size: 11px;
+                      background-color: white;
+                      font-family: "Verdana", sans;
+                      color: gray;
+            }
+
+            a {
+                color: #40CAFC;
+                display: block;
+                margin: 4em 0 6em 0;
+            }
+
+            h1 {
+                color: #40CAFC;
+                font-size: 120%;
+                margin: 1em;
+            }
+
+            p {margin: 5px 0;}
+
+            #central {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                z-index: 24;
+                left: 50%;
+                top: 50%;
+            }
+
+            #container {
+                text-align: left;
+                position: absolute;
+                width: 600px;
+                height: 300px;
+                top: -150px;
+                left: -300px;
+                background-color: white;
+                border: 1px solid #40CAFC;
+                text-align: center;
+            }
+
+            .dpan {
+                letter-spacing: 0.5em;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="central">
+            <div id="container">
+                <h1>Lo sentimos, pero los cambios han sido rechazados.</h1>
+                <a href="/">Volver a la página principal</a>
+                <p><span class="dpan">lapanaderia</span> arquitectura y diseño, s.l.p.</p>
+                <p>c/garci fernández 20A. 41008 sevilla</p>
+                <p>tel/fax 0034 954 41 93 05</p>
+                <p>info@despachodepan.com</p>
+            </div>
+        </div>
+    </body>
 </html>

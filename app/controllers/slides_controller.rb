@@ -2,12 +2,8 @@ class SlidesController < ApplicationController
   layout 'admin'
   before_filter :authenticate
   inherit_resources
-  actions :all, :except => [:new]
+  actions :all, :except => [:new, :index]
 
-  def index
-    @slides = Slide.all(:include => :image)
-    index!
-  end
 
   def create
     create! do |success, failure|

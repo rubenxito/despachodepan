@@ -17,8 +17,8 @@
         <td><%= image_tag slide.image.public_filename(:thumb)  unless slide.image.nil? %></td>
         <td><%= slide.body %></td>
         <td><%= slide.pos %>
-          <%= link_to image_tag('move_up.png'), '#' %>
-          <%= link_to image_tag('move_down.png'), '#' %> </td>
+          <%= link_to image_tag('move_up.png'), up_slide_position_path(slide) %>
+          <%= link_to image_tag('move_down.png'), down_slide_position_path(slide) %> </td>
         <td><%= slide.date %></td>
         <td><%= t("slide.extra.ond#{slide.extra}") if slide.extra_meaning %></td>
         <td class="actions">

@@ -14,7 +14,11 @@
   <tbody>
     <% slides.each do |slide| %>
       <tr>
-        <td><%= image_tag slide.image.public_filename(:thumb)  unless slide.image.nil? %></td>
+        <td>
+          <% if slide.image %>
+            <%= link_to image_tag(slide.image.public_filename(:thumb)), slide.image.public_filename  %>
+          <% end %>
+        </td>
         <td><%= slide.body %></td>
         <td><%= slide.pos %>
           <%= link_to image_tag('move_up.png'), up_slide_position_path(slide) %>

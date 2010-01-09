@@ -9,7 +9,7 @@ class SlidesController < ApplicationController
     create! do |success, failure|
       success.html do
         save_image
-        expire_page_cache(@clide.card)
+        expire_page_cache(@slide.card)
         redirect_to @slide.card
       end
       failure.html { render :text => 'lo siento, algo ha ido mal. vuelve a intentarlo...'}

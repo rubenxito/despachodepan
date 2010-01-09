@@ -10,8 +10,8 @@
     }
   </style>
   <script type="text/javascript">
-    var first_image = <%= @card.slides.first.id %>;
-    var last_image = <%= @card.slides.last.id %>;
+    var first_image = <%= @card.photos.first.id %>;
+    var last_image = <%= @card.photos.last.id %>;
   </script>
 <% end -%>
 
@@ -85,9 +85,9 @@
   <div id="slide_controls" class="card_element">
     <%= link_to image_tag('arrowleft1.gif', :alt => 'primera'), '#/imagen=1', {:id => 'slideFirst'},  :class => 'arrow' %>
     <%= link_to image_tag('arrowleft2.gif', :alt => 'anterior'), '#', {:id => 'slidePrev'}, :class => 'arrow'%>
-    &nbsp;<span id="number_control"></span> / <span><%= @card.slides.length %></span>&nbsp;
+    &nbsp;<span id="number_control"></span> / <span><%= @card.photos.length %></span>&nbsp;
     <%= link_to image_tag('arrowright1.gif', :alt =>'siguiente'), '#', {:id => 'slideNext'}, :class => 'arrow' %>
-    <%= link_to image_tag('arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.slides.size}", {:id => 'slideLast'}, :class => 'arrow'  %>
+    <%= link_to image_tag('arrowright2.gif', :alt => 'última'), "#/imagen=#{@card.photos.size}", {:id => 'slideLast'}, :class => 'arrow'  %>
   </div>
 
 </div>

@@ -55,7 +55,7 @@ class PagesController < ApplicationController
 				@properties << splitted
 			end
 
-			first = @card.slides.first
+			first = @card.photos.first
 			first_id = first.nil? ? '0' : first.id
 			@show_image = params[:imagen].blank? ? first_id.to_s : params[:imagen]
 			render :action => 'card', :layout => 'cards'

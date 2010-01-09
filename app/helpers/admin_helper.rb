@@ -16,4 +16,8 @@ module AdminHelper
     card.selection.active? ? link_to('Ver selección', card.selection) :
       link_to('Seleccionar', card.selection, :class => 'selection_add')
   end
+
+  def textile_info
+    '<span class="info">Puedes escribir formato <a href="http://elzr.com/static/textile" target="_blank">Textile</a></span>'
+  end
 end

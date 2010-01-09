@@ -71,7 +71,7 @@
   <!-- slides -->
   <div id="slides" class="card_element">
     <% @card.photos.each do |slide| %>
-      <div id="slideImage<%= slide.pos + 1 %>" class="slide" style="display: none">
+      <div id="slideImage<%= slide.pos %>" class="slide" style="display: none">
         <%= image_tag slide.image.public_filename,
           :alt => slide.body.strip, :size => "#{slide.image.width}x#{slide.image.height}" %>
         <div class="slide_text">

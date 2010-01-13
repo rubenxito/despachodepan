@@ -59,6 +59,10 @@ class Card < ActiveRecord::Base
 	def column_of(str_date)
 		date_to_column(parse_date(str_date))
 	end
+
+  def color?
+    !color.nil?
+  end
 	
 	def has_color
 		!color.nil?

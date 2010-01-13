@@ -16,16 +16,18 @@
             <td><%= color_example color.value %></td>
             <td><%= color_example color.high_value %></td>
             <td class="actions">
-              <%= link_to t(:delete), color, :method => 'delete',
-                :confirm => "Te vas a cepillar a '#{color.name}... ¿Segura?!!" %>
               <%= link_to t(:modify), edit_color_path(color) %>
+              <% if !color.used? %>
+                <%= link_to t(:delete), color, :method => 'delete',
+                  :confirm => "Te vas a cepillar a '#{color.name}... ¿Segura?!!" %>
+              <% end %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-  
+
   <div class="col2">
     <div class="nested">
       <h3>Añadir un color</h3>

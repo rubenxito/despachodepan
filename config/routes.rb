@@ -14,8 +14,12 @@ ActionController::Routing::Routes.draw do |map|
     card.resources :card_files, :path_prefix => 'admin'
   end
 
+  map.resources(:tags, :as => 'categorias', :path_prefix => 'admin') do |tag|
+    tag.resource :position, :controller => 'tag_positions', :as => 'position', :member => { :up => :get, :down => :get, :top => :get, :bottom => :get, :reorder => :get }
+  end
+
   map.resources :colors, :as => 'colores', :path_prefix => 'admin'
-  map.resources :tags, :as => 'categorias', :path_prefix => 'admin'
+  
   map.connect '/:id', :controller => 'pages', :action => 'card'
   map.connect '/editar/:id', :controller => 'cards', :action => 'find'
 end

@@ -1,6 +1,9 @@
 <%= title t(:title) %>
 <br/><br/>
 
+<div class="actions">
+</div>
+
 <div class="columns">
   <div class="col2">
     <table>
@@ -15,16 +18,20 @@
       <tbody>
         <% @tags.each do |tag| %>
           <tr>
-            <td><%= link_to tag.name, edit_tag_path(tag) %></td>
+            <td><%= link_to tag.name, edit_tag_path(tag), :style => "color: " %></td>
             <td>
               <% for card in tag.cards -%>
-                <%= link_to card.title, '#' %><br/>
+                <%= link_to card.title, card %><br/>
               <% end -%>
             </td>
             <td>
               <%= tag.position %>
-              <%= link_to image_tag('move_up.png'), '#' %>
-              <%= link_to image_tag('move_down.png'), '#' %>
+              <div>
+                <%= link_to image_tag('move_top.png'), top_tag_position_path(tag) %>
+                <%= link_to image_tag('move_up.png'), up_tag_position_path(tag) %>
+                <%= link_to image_tag('move_down.png'), down_tag_position_path(tag) %>
+                <%= link_to image_tag('move_bottom.png'), bottom_tag_position_path(tag) %>
+              </div>
             </td>
             <td>
               <%= color_example tag.color.value %>

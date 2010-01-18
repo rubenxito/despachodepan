@@ -44,6 +44,13 @@ namespace :config do
   end
 end
 
+namespace :cache do
+  desc "clear cache"
+  task :clear, :roles => [:app] do
+    run "rm -rf #{shared_path}/cache/*"
+  end
+end
+
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"

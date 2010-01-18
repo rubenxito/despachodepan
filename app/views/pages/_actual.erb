@@ -1,11 +1,10 @@
 <div class="news"
-     style="background-color: <%= c(actual.card.color.high_value) %>;
-     color: <%= c(actual.card.color.value) %>;
+     style="color: <%= c(actual.card.color.value) %>;
      width: <%= actual.width %>px;">
-  <p class="text">
-    <span class="date"><%= year_of actual.date %> <% actual.card.tags.each do |tag|  %><%= tag.name %> <% end %></span>
-    <span class="title"><%= link_to actual.card.title, actual.card.path, :style => "color: #{c(actual.card.color.value)};" %></span>
-    <span class="body"><%= actual.body %></span>
-  </p>
-  <%= (link_to image_tag(actual.image.public_filename), actual.card.path) if actual.image %>
+  <div class="text" style="background-color: <%= c(actual.card.color.high_value) %>;">
+    <span class="date"><%= actual.date %> <% actual.card.tags.each do |tag|  %><%= tag.name %> <% end %></span>
+    <span class="title"><%= link_to_if actual.card.visible?, actual.card.title, actual.card.path, :style => "color: #{c(actual.card.color.value)};" %></span>
+    <div class="body"><%= textilize actual.body %></div>
+  </div>
+  <%= (link_to_if actual.card.visible?, image_tag(actual.image.public_filename), actual.card.path) if actual.image %>
 </div>

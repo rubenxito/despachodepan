@@ -12,7 +12,6 @@ html {
 }
 
 a {text-decoration: none; color: @azul;}
-a:hover {text-decoration: underline;}
 
 /** LAYOUT **/
 #central {
@@ -59,9 +58,9 @@ a:hover {text-decoration: underline;}
 
 /** TABS **/
 #tabs {overflow: hidden; z-index: 100;}
-#tabs  li {
-    float: left; height: 16px; padding-top: 2px;
-    text-align: center; margin-right: 11px;
+#tabs li {
+    float: left; height: 16px; padding: 1px 0 1px 0;
+    text-align: center; margin-right: 11px; margin-top: 0;
     border: 1px solid @azul;
 }
 #tabs li.selected {border-bottom: 1px solid white;}
@@ -78,7 +77,7 @@ a:hover {text-decoration: underline;}
 }
 
 #grid .element.caption {
-    cursor: default;
+    cursor: pointer;
     z-index: 200;
 }
 
@@ -98,22 +97,13 @@ a:hover {text-decoration: underline;}
 
 #time-panel .line {width: 100%; overflow: hidden; margin-bottom: 10px;}
 
-/** SELECCIÓN **/
-#time-panel .selected {
-    float: left; height: 220px; margin-right: 10px;
-}
 
-#time-panel .selected .image {height: 185px; overflow: hidden;}
-#time-panel .selected p {width: 96%; margin-left: 2%; display: block; overflow: hidden;}
-#time-panel .selected .span {display: block; padding: 2px;}
-#time-panel .selected .tags {float: left;}
-#time-panel .selected .date {float: right;}
 
 #time-panel .news {
     float: left; height: 440px; margin-right: 10px;
 }
 #time-panel .news img {
-    
+
 }
 
 
@@ -141,12 +131,21 @@ a:hover {text-decoration: underline;}
 /** ACTUAL **/
 
 .news .text {
-    width: 96%; margin: 0 2%; overflow: hidden;
-    height: 100px;
+    width: 100%; padding: 0 0% 5px 0%; overflow: hidden;
     overflow: hidden;
 }
 
 .news .text span {margin: 3px; display: block;}
 .news .text span.date {margin-top: 10px; margin-bottom: 10px; height: 1.2em;}
 .news .text span.title {margin-bottom: 5px;}
-.news .text span.body {color: gray;}
+.news .text div.body {color: gray;margin: 3px; }
+
+/** SELECCIÓN **/
+#time-panel .selected {
+    float: left; height: 220px; margin-right: 10px;
+}
+
+#time-panel .selected .image {height: 199px; overflow: hidden; margin-bottom: 3px;}
+#time-panel .selected .data {width: 100%; overflow: hidden;}
+#time-panel .selected .body {margin-left: 5px;}
+#time-panel .selected .date {float: right; margin-right: 5px;}

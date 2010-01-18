@@ -4,7 +4,9 @@
     <tr>
       <td>Imágen</td>
       <td><%= t(:body) %></td>
-      <td>Posición</td>
+      <% if label == 'slide' %>
+        <td>Posición</td>
+      <% end %>
       <td><%= t("slide.extra.fecha_#{label}") %> </td>
       <td></td>
       <td>Tipo</td>
@@ -20,14 +22,18 @@
           <% end %>
         </td>
         <td><%= slide.body %></td>
-        <td><%= slide.pos %>
-          <%= link_to image_tag('move_up.png'), up_slide_position_path(slide) %>
-          <%= link_to image_tag('move_down.png'), down_slide_position_path(slide) %> </td>
+        <% if label == 'slide' %>
+          <td>
+            <%= slide.pos %>
+            <%= link_to image_tag('move_up.png'), up_slide_position_path(slide) %>
+            <%= link_to image_tag('move_down.png'), down_slide_position_path(slide) %>
+          </td>
+        <% end %>
         <td><%= slide.date %></td>
         <td><%= t("slide.extra.ond#{slide.extra}") if slide.extra_meaning %></td>
         <td class="actions">
-          <%= link_to 'Borrar', slide_path(slide), :method => :delete, :confirm => "Estás a punto de borrar un elemento de #{t(slide.rol)}. ¿Segura?! :-o" %>
           <%= link_to 'Editar', edit_slide_path(slide) %>
+          <%= link_to 'Borrar', slide_path(slide), :method => :delete, :confirm => "Estás a punto de borrar un elemento de #{t(slide.rol)}. ¿Segura?! :-o" %>
         </td>
       </tr>
     <% end %>

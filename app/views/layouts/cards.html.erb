@@ -12,6 +12,7 @@
   </head>
   <body>
     <div id="central">
+      <div id="playground">
         <ul id="tabs">
           <li id="nav-actual" ><%= link_to 'actual', actual_path %></li>
           <li id="nav-seleccion" ><%= link_to 'selección', seleccion_path %></li>
@@ -23,7 +24,7 @@
         </ul>
 
       <%= yield  %>
-
+      </div>
     </div>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

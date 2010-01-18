@@ -49,8 +49,8 @@ module PagesHelper
 		style['text-align'] = 'right'
 		style['color'] = "##{card.color.value}"
     clazz = "card element card#{card.id} caption"
-    content_tag :span, card.title, {:class => clazz, :id => id,
-      #:href => "/#{card.url}",
+    content_tag :a, card.title, {:class => clazz, :id => id,
+      :href => "/#{card.url}",
       :style => style.pinta}
 	end
 

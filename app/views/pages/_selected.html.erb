@@ -3,11 +3,10 @@
      color: <%= c(selected.card.color.value) %>;
      width: <%= selected.width %>px;">
   <div class="image">
-    <%= (link_to image_tag(selected.image.public_filename), selected.card.path) if selected.image %>
+    <%= (link_to_if selected.card.visible?, image_tag(selected.image.public_filename), selected.card.path) if selected.image %>
   </div>
-  <p class="data">
-    <span class="category"><%= link_to selected.card.title, selected.card.path %></span>
-    <span class="date"><%= year_of selected.date %></span>
-  </p>
-  <p class="body"><span><%= selected.body %></span></p>
+  <div class="data">
+    <div class="date"><%= year_of selected.date %></div>
+    <div class="body"><%= textilize selected.body %></div>
+  </div>
 </div>

@@ -12,7 +12,9 @@
     <% @card.files.each do |file| %>
       <tr>
         <td id="<%= "fileTitle#{file.id}" %>"><%= link_to file.title, edit_card_card_file_path(@card, file) %></td>
-        <td><%= link_to(file.filename, file.public_filename) if file.filename  %></td>
+        <td>
+          <%= link_to(file.filename, file.public_filename) if file.filename  %>
+        </td>
         <td class="actions">
           <%= link_to 'Editar', edit_card_card_file_path(@card, file) %>
           <%=  link_to 'Borrar', card_card_file_path(@card, file), :method => 'delete',

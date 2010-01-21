@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100108172954) do
+ActiveRecord::Schema.define(:version => 20100121114109) do
 
   create_table "card_files", :force => true do |t|
     t.integer "parent_id"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20100108172954) do
     t.integer "pos"
     t.string  "date"
     t.string  "rol"
-    t.string  "body"
+    t.string  "body",     :limit => 4096
     t.string  "extra"
     t.string  "rev_date"
   end

@@ -1,0 +1,9 @@
+
+<%= title "Editar fichero de '#{@card_file.card.title}'" %>
+
+<div class="actions">
+  <%= link_to 'Cancelar', card_path(@card_file.card) %>
+</div>
+
+
+<%= render :partial => 'form', :locals => {:file => @card_file } %>

@@ -20,7 +20,7 @@
   </div>
   <div class="col2">
     <a name="ficheros"> </a>
-    <%= render 'files' %>
+    <%= render :partial => '/card_files/files' %>
     <a name="seleccion"> </a>
     <h2>Selección</h2>
     <%= render :partial => '/slides/slides', :locals => {:slides => @card.selections, :label => @selected.rol } %>

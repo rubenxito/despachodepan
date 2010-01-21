@@ -13,4 +13,8 @@ module ApplicationHelper
   def c(value)
     "##{value}"
   end
+
+  def new?(model, create, update)
+    model.new_record? ? create : update
+  end
 end

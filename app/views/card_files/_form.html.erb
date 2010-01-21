@@ -1,0 +1,27 @@
+<div class="nested">
+  <h3><%=  new?(file, 'Añadir', 'Modificar')  %> un archivo</h3>
+  <% form_for [file.card, file], :html => {:multipart => true}  do |form| %>
+    <%= form.hidden_field :card_id %>
+    <%= form.hidden_field :parent_id %>
+
+    <p>
+      <%= form.label :title, 'Título' %>
+      <%= form.text_field :title  %>
+    </p>
+    <p>
+      <%= form.label :uploaded_data, 'Archivo'  %>
+      <% if file.filename %>
+        <span>Archivo actual: <%= file.filename %></span>
+        <span class="info">Para cambiar este archivo, simplemente sube otro.</span>
+        <br/><br/>
+      <% end %>
+      <%= form.file_field :uploaded_data %>
+    </p>
+    <p>
+      <br/>
+      <%= form.submit new?(file, 'Añadir', 'Modificar') %>
+    </p>
+  <% end %>
+</div>
+
+

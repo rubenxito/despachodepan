@@ -51,6 +51,13 @@ es:
         notice: "Pues nada, nos lo hemos cargado"
       create:
         notice: "Bien!! Añadido a la ficha"
+    card_files:
+      create:
+        notice: "Bien!! Llenito de ficheros tenemos la web"
+      update:
+        notice: "Bien!! El fichero ha sido modificado"
+      destroy:
+        notice: "En fin.. así es la vida, unos ficheros vienen, otros van..."
 
 
 
@@ -116,5 +123,6 @@ es:
       TagsController: "categorías"
       SelectionsController: "selección"
       SlidesController: "imágenes"
+      CardFilesController: "archivos"
       
       

@@ -10,8 +10,10 @@ ActionController::Routing::Routes.draw do |map|
     slide.resource :position, :controller => 'slide_positions', :as => 'position', :member => { :up => :get, :down => :get }
   end
   
+    
+
   map.resources(:cards, :as => 'fichas', :path_prefix => 'admin') do |card|
-    card.resources :card_files, :path_prefix => 'admin'
+    card.resources :card_files,  :as => 'ficheros'
   end
 
   map.resources(:tags, :as => 'categorias', :path_prefix => 'admin') do |tag|

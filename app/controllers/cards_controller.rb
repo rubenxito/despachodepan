@@ -57,7 +57,7 @@ class CardsController < ApplicationController
     @photo = @card.slides.build(:rol => 'slide')
     @news = @card.slides.build(:rol => 'news')
     @selected = @card.slides.build(:rol => 'selection')
-    @card_file = CardFile.new
+    @card_file = CardFile.new(:card_id =>  @card.id)
   end
 
 

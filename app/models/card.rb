@@ -12,6 +12,7 @@ class Card < ActiveRecord::Base
     :class_name => 'Slide', :conditions => {:rol => 'news'}
 
   has_many :files, :class_name => 'CardFile', :dependent => :destroy
+  has_many :card_files, :class_name => 'CardFile', :dependent => :destroy
 	belongs_to :main_image, :class_name => "Image",
 		:foreign_key => :main_image_id,  :dependent => :destroy
 	belongs_to :selection_image, :class_name => "Image",

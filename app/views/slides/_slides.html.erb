@@ -8,9 +8,9 @@
         <td>Posición</td>
       <% end %>
       <td><%= t("slide.extra.fecha_#{label}") %> </td>
-      <td></td>
+      <td>Fecha</td>
       <td>Tipo</td>
-      <td/>
+      <td>&nbsp;</td>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +21,7 @@
             <%= link_to image_tag(slide.image.public_filename(:thumb)), slide.image.public_filename  %>
           <% end %>
         </td>
-        <td><%= slide.body %></td>
+        <td><%= truncate slide.body %></td>
         <% if label == 'slide' %>
           <td>
             <%= slide.pos %>

@@ -33,7 +33,7 @@
         <td><%= t("slide.extra.ond#{slide.extra}") if slide.extra_meaning %></td>
         <td class="actions">
           <%= link_to 'Editar', edit_slide_path(slide) %>
-          <%= link_to 'Borrar', slide_path(slide), :method => :delete, :confirm => "Estás a punto de borrar un elemento de #{t(slide.rol)}. ¿Segura?! :-o" %>
+          <%= link_to 'Borrar', slide_path(slide), :method => :delete, :confirm => "¿Estás seguro seguro de borrar esto?" %>
         </td>
       </tr>
     <% end %>

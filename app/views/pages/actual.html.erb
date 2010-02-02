@@ -2,13 +2,14 @@
   <script type="text/javascript">
     (function($) {
       var scrollTime = 0;
+      var scrollSize = 3000;
 
       $(function() {
         if (scrollTime == 0) {
-          $("#wrapper").attr('scrollLeft', 1300);
+          $("#wrapper").attr('scrollLeft', scrollSize);
         } else {
           $("#wrapper").animate({
-            scrollLeft: 1200
+            scrollLeft: scrollSize
           }, scrollTime, "swing", function() {});
         }
       });

@@ -21,9 +21,9 @@
     <div id="central">
       <div id="playground">
         <ul id="tabs">
-          <li id="nav-actual" class="<%= 'selected' if current_page?(actual_path) %>"><%= link_to 'actual', actual_path %></li>
+          <li id="nav-actual" class="<%= 'selected' if (current_page?(actual_path)|| current_page?(root_path)) %>"><%= link_to 'actual', actual_path %></li>
           <li id="nav-seleccion" class="<%= 'selected' if current_page?(seleccion_path) %>"><%= link_to 'selección', seleccion_path %></li>
-          <li id="nav-indice" class="<%= 'selected' if (current_page?(indice_path) || current_page?(root_path)) %>"><%= link_to 'proyectos', indice_path %></li>
+          <li id="nav-indice" class="<%= 'selected' if (current_page?(indice_path) ) %>"><%= link_to 'proyectos', indice_path %></li>
           <%= yield :tabs %>
           <li id="nav-panaderia">
             <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>

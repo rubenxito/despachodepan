@@ -18,7 +18,7 @@
       <%= form.text_area :body, :rows => 10  %>
     </p>
     <p>
-      <%= form.label :date, t(:slide_date) %>
+      <%= form.label :date, t("slide.extra.fecha_#{slide.rol}") %>
       <%= form.text_field :date %>
     </p>
     <% if slide.extra_meaning %>

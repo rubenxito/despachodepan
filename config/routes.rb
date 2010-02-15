@@ -5,13 +5,13 @@ ActionController::Routing::Routes.draw do |map|
   map.seleccion '/seleccion', :controller => 'pages', :action => 'selection'
   map.actual '/actual', :controller => 'pages', :action => 'actual'
   map.thumb '/thumb/:id', :controller => 'pages', :action => 'thumb'
+  map.index '/index', :controller => 'pages', :action => 'index'
+
 
   map.resources(:slides, :path_prefix => 'admin') do |slide|
     slide.resource :position, :controller => 'slide_positions', :as => 'position', :member => { :up => :get, :down => :get }
   end
   
-    
-
   map.resources(:cards, :as => 'fichas', :path_prefix => 'admin') do |card|
     card.resources :card_files,  :as => 'ficheros'
   end

@@ -55,7 +55,7 @@ module PagesHelper
 	end
 
 	def pinta_main(card)
-		id = "main-#{card.main_slide_id}-#{card.id}"
+		id = "main-#{card.main_slide.id}-#{card.id}"
 		extra = card.main_slide.nil? ? "" : "preview"
 		extra = extra + " blank" if !card.link.blank? || !card.main_file.nil?
 		top = card.vposition * BLOC_SIZE

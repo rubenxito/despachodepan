@@ -19,8 +19,9 @@ class Card < ActiveRecord::Base
 		:foreign_key => :selection_image_id,  :dependent => :destroy
 	belongs_to :color
 	has_and_belongs_to_many :tags, :include => [:color]
-	belongs_to :main_slide, :foreign_key => :main_slide_id,
+	belongs_to :old_main_slide, :foreign_key => :main_slide_id,
 		:class_name => 'Slide', :include => [:image]
+  has_one :main_slide, :class_name => 'Slide', :conditions => {:rol => 'slide', :extra => 'main'}, :include => [:image]
 	belongs_to :main_file, :foreign_key => :main_file_id,
 		:class_name => 'CardFile'
   #has_one :selection

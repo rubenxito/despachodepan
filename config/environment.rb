@@ -14,7 +14,7 @@ Rails::Initializer.run do |config|
   config.gem 'will_paginate', :source => 'http://gemcutter.org'
   config.gem 'translator', :sounce => 'http://gemcutter.org'
   config.gem 'inherited_resources', :source => 'http://gemcutter.org', :version => '0.9.2'
-  config.gem 'less', :version => '1.2.21'
+  config.gem 'less' #, :version => '1.2.21'
   config.gem 'mini_magick', :source => 'http://gemcutter.org'
 
   config.autoload_paths << "#{RAILS_ROOT}/lib"

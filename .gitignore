@@ -1,4 +1,3 @@
-public/media/**
 log/*
 tmp/*
 config/database.yml
@@ -10,7 +9,6 @@ config/despachodepan.yml
 public/cache/**
 public/stylesheets/**
 .idea/
-public/media
 db/*.yml
 
 

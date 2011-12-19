@@ -1,17 +1,13 @@
 <% content_for :header do %>
   <script type="text/javascript">
     (function($) {
-      var scrollTime = 0;
+      var scrollTime = 1;
       var scrollSize = 30000;
 
       $(function() {
-        if (scrollTime == 0) {
-          $("#wrapper").attr('scrollLeft', scrollSize);
-        } else {
           $("#wrapper").animate({
             scrollLeft: scrollSize
           }, scrollTime, "swing", function() {});
-        }
       });
     })(jQuery);
   </script>

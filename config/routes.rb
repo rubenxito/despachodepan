@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'pages', :action => 'actual'
   map.lapanaderia '/lapanaderia', :controller => 'pages', :action => 'lapanaderia'
-  map.indice '/indice', :controller => 'pages', :action => 'indice'
+  map.indice '/procesos', :controller => 'pages', :action => 'indice'
   map.seleccion '/seleccion', :controller => 'pages', :action => 'selection'
-  map.actual '/actual', :controller => 'pages', :action => 'actual'
+  map.actual '/noticias', :controller => 'pages', :action => 'actual'
   map.thumb '/thumb/:id', :controller => 'pages', :action => 'thumb'
   map.index '/index', :controller => 'pages', :action => 'index'
 

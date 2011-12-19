@@ -6,28 +6,31 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet/less" type="text/css" href="/stylesheets/grids.less">
   <script src="/javascripts/less-1.1.3.min.js" type="text/javascript"></script>
+ <title>l a p a n a d e r í a : <%= yield :title %></title>
   <%= render 'layouts/javascripts' %>
-  <%#= javascript_include_tag  'jScrollPane' %>
-  <!--    <script type="text/javascript">
-        $(function()
-        {
-          $('#wrapper').jScrollPane();
-        });
-      </script>
-  -->
-  <title>l a p a n a d e r í a : <%= yield :title %></title>
   <%= yield :header %>
 </head>
 <body>
 <div id="central">
   <div id="playground">
-    <ul id="tabs">
-      <li id="nav-actual" class="<%= 'selected' if (current_page?(actual_path)|| current_page?(root_path)) %>"><%= link_to 'actual', actual_path %></li>
+        <a href="/lapanaderia" id="logo">La Panadería</a>
+        <div id="social">
+          <div class="fb-like" data-href="http://despachodepan.con" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+          <div class="buttons">
+            <a class="facebook" href="https://www.facebook.com/profile.php?id=1677558630">La panadería en facebook</a>
+            <a class="twitter" href="http://twitter.com/#!/despachodepan">La panadería en twitter</a>
+            <a class="linkedin" href="http://www.linkedin.com/company/lapanaderia-arquitectura-y-dise-o">La panadería en linkedin</a>
+            <a class="flickr" href="http://www.flickr.com/photos/lapanaderia-arquitectura/sets/">La panadería en flickr</a>
+            <span class="cc">Algunos derechos reservados</span>
+          </div>
+        </div>
+     <ul id="tabs">
+      <li id="nav-actual" class="<%= 'selected' if (current_page?(actual_path)|| current_page?(root_path)) %>"><%= link_to 'noticias', actual_path %></li>
       <li id="nav-seleccion" class="<%= 'selected' if current_page?(seleccion_path) %>"><%= link_to 'selección', seleccion_path %></li>
-      <li id="nav-indice" class="<%= 'selected' if (current_page?(indice_path)) %>"><%= link_to 'proyectos', indice_path %></li>
+      <li id="nav-indice" class="<%= 'selected' if (current_page?(indice_path)) %>"><%= link_to 'procesos', indice_path %></li>
       <%= yield :tabs %>
       <li id="nav-panaderia">
-        <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+        <%= link_to 'quiénes somos', lapanaderia_path %>
       </li>
     </ul>
     <%= yield %>

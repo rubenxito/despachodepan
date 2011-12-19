@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -14,27 +14,46 @@
   <body>
     <div id="central">
       <div id="playground">
+        <a href="/lapanaderia" id="logo">La Panadería</a>
+        <div id="social">
+          <div class="fb-like" data-href="http://despachodepan.con" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+          <div class="buttons">
+            <a class="facebook" href="https://www.facebook.com/profile.php?id=1677558630">La panadería en facebook</a>
+            <a class="twitter" href="http://twitter.com/#!/despachodepan">La panadería en twitter</a>
+            <a class="linkedin" href="http://www.linkedin.com/company/lapanaderia-arquitectura-y-dise-o">La panadería en linkedin</a>
+            <a class="flickr" href="http://www.flickr.com/photos/lapanaderia-arquitectura/sets/">La panadería en flickr</a>
+            <span class="cc">Algunos derechos reservados</span>
+          </div>
+        </div>
         <ul id="tabs">
-          <li id="nav-actual" ><%= link_to 'actual', actual_path %></li>
+          <li id="nav-actual" ><%= link_to 'noticias', actual_path %></li>
           <li id="nav-seleccion" ><%= link_to 'selección', seleccion_path %></li>
-          <li id="nav-indice" ><%= link_to 'proyectos', indice_path %></li>
+          <li id="nav-indice" ><%= link_to 'procesos', indice_path %></li>
           <%= yield :tabs %>
           <li id="nav-panaderia" class="<%= 'selected' if @card.id == 1 %>">
-            <%= link_to 'l a p a n a d e r í a', lapanaderia_path %>
+          <%= link_to 'quiénes somos', lapanaderia_path %>
           </li>
         </ul>
 
-      <%= yield  %>
+        <%= yield  %>
       </div>
     </div>
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-      try {
-        var pageTracker = _gat._getTracker("UA-1584724-6");
-        pageTracker._trackPageview();
-      } catch(err) {}</script>
-  </body>
-</html>
+      </script>
+      <script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("UA-1584724-6");
+          pageTracker._trackPageview();
+        } catch(err) {}</script>
+      <!-- Facebook -->
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    </body>
+  </html>

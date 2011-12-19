@@ -10,13 +10,9 @@
     var cardIDs = [<%= @cards.map(&:id).join(',') %>];
 
     $(function() {
-        if (scrollTime == 0) {
-            $("#wrapper").attr('scrollLeft', 1300);
-        } else {
             $("#wrapper").animate({
-                scrollLeft: 1200
+                scrollLeft: 2200
             }, scrollTime, "swing", function() {});
-        }
     });
 
   </script>

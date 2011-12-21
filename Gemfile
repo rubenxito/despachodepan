@@ -10,6 +10,6 @@ gem 'inherited_resources', '0.9.2'
 gem 'mini_magick'
 gem 'capistrano'
 gem 'mysql2', '0.2.7', :group => :production
-#gem 'mysql', '2.7'
+gem 'mysql', '2.7', :group => :production
 gem 'sqlite3'
 

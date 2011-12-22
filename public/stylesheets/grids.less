@@ -1,0 +1,203 @@
+/*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.6.0
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}
+
+
+/** VARIABLES **/
+@azul: #40CAFC;
+@azulclaro: #D6F3FE;
+
+html {
+    font-size: 11px;
+    background-color: white;
+    font-family: "Verdana", sans;
+}
+
+a {text-decoration: none; color: @azul;}
+
+/** LAYOUT **/
+#central {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: 24;
+    left: 50%;
+    top: 50%;
+}
+
+#playground {
+    position: absolute; margin-left: -500px; margin-top: -260px;
+    width: 1000px;
+    height: 520px;
+}
+
+#logo {
+  position: absolute;
+  top: -55px; height: 43px;
+  width: 182px; left: 0;
+  z-index: 2001;
+  background: url('/images/logo.gif') no-repeat;
+  overflow: hidden; text-indent: -1000px;
+}
+a#logo:hover {
+  background-position: 0 -43px;
+}
+
+#social {
+  position: absolute; top: 519px; right: 96px;
+  height: 40px; width: 300px;
+  z-index: 2002; overflow: hidden;
+
+  div.fb-like {position: absolute; left: 0; top: 0;
+     width: 78px;}
+
+  div.buttons {
+    width: 100%; overflow: hidden;
+    margin-left: 90px;
+
+    a, span {display: block; float: left;
+	width: 20px; height: 20px; margin-right: 3px;
+	background: url('/images/social.png') no-repeat;
+	overflow: hidden; text-indent: -1000px;
+   }
+
+    span {width: 80px; background-position: -93px -3px;}
+   
+    a.facebook {background-position: 0 0;} 
+    a.twitter {background-position: -21px 0;}
+    a.linkedin {background-position: -42px 0;}
+    a.flickr {background-position: -63px 0;}
+    a.facebook:hover {background-position: 0 -21px;} 
+    a.twitter:hover {background-position: -21px -21px;}
+    a.linkedin:hover {background-position: -42px -21px;}
+    a.flickr:hover {background-position: -63px -21px;}
+  }
+}
+
+#tabs {
+    width: 865px; overflow: hidden;
+    height: 20px;
+    position: absolute; top: 0; left: 0;
+}
+
+
+#wrapper {
+    position: absolute; top: 19px; left: 0;
+    overflow: auto;
+    width: 865px;
+    height: 495px;
+    z-index: 50;
+}
+
+#grid {
+    background: transparent url('/images/grid2012.png') no-repeat;
+    width: 2306px; height: 469px;
+}
+
+#tags-bar {
+    position: absolute; left: 870px; top: 0px; width: 120px; height: 489px;
+}
+
+#tags { position: absolute; left: 0px; bottom: 0px;  width: 120px;}
+
+/** TABS **/
+#tabs {overflow: hidden; z-index: 100;}
+#tabs li {
+    float: left; height: 16px; padding: 1px 0 1px 0;
+    text-align: center; margin-right: 11px; margin-top: 0;
+    border: 1px solid @azul;
+}
+#tabs li.selected {border-bottom: 1px solid white;}
+#nav-actual {width: 59px;}
+#nav-seleccion {width: 71px;}
+#nav-indice {width: 71px;}
+#tabs li#nav-panaderia {float: right; width: 143px; margin-right: 0;}
+
+/** GRID **/
+#grid .element {
+    position: absolute; overflow: hidden; text-indent: -1000px;
+    border: 0; padding: 0; margin: 0;
+    cursor: pointer; z-index: 400;
+}
+
+#grid .element.caption {
+    cursor: pointer;
+    z-index: 200;
+}
+
+/** TAGS **/
+#tags li {display: block; width: 100%; overflow: hidden; margin: 2px 0;}
+#tags li .tag {display: block; float: left; width: 90px;}
+#tags li label {
+    display: block; float: left; width: 10px; height: 10px; cursor: pointer;
+    overflow: hidden; text-indent: -1000px; font-size: 0px;
+    border: 1px solid gray;}
+
+/** TIME PANEL **/
+#time-panel {
+    width: 1000px; height: 460px; padding: 10px 10px 0 10px;
+    border: 1px solid @azul;
+}
+
+#time-panel .line {width: 100%; overflow: hidden; margin-bottom: 10px;}
+
+
+
+#time-panel .news {
+    float: left; height: 440px; margin-right: 10px;
+}
+#time-panel .news img {
+
+}
+
+
+#preview {
+    position: absolute;
+    background-color: white;
+    padding: 2px;
+    z-index: 500;
+}
+.preview {
+    z-index: 500;
+}
+
+.mini_slide {
+    border: 1px solid #40CAFC;
+    padding: 4px;
+}
+
+
+.mini_text {
+    width: 100px;
+    text-align: left;
+}
+
+/** ACTUAL **/
+
+.news .text {
+    width: 100%; padding: 0 0% 5px 0%; overflow: hidden;
+    overflow: hidden;
+}
+
+.news .text span {margin: 3px; display: block;}
+.news .text span.date {margin-top: 10px; margin-bottom: 10px; height: 1.2em;}
+.news .text span.title {margin-bottom: 5px;}
+.news .text div.body {color: gray;margin: 3px; }
+.news .text div.body span {display: inline;}
+
+/** SELECCIÓN **/
+#time-panel .selected {
+    float: left; height: 220px; margin-right: 10px;
+}
+
+#time-panel .selected .image {height: 199px; overflow: hidden; margin-bottom: 3px;}
+#time-panel .selected .data {width: 100%; overflow: hidden;}
+#time-panel .selected .body {margin-left: 5px;}
+#time-panel .selected .date {float: right; margin-right: 5px;}
+
+@import 'jScrollPane.css';
+

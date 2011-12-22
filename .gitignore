@@ -7,7 +7,6 @@ db/*.sqlite3
 db/development.sqlite3
 config/despachodepan.yml
 public/cache/**
-public/stylesheets/**
 .idea/
 .bundle
 db/*.yml

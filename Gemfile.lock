@@ -24,6 +24,7 @@ GEM
     inherited_resources (0.9.2)
     mini_magick (3.3)
       subexec (~> 0.1.0)
+    mysql (2.7)
     mysql2 (0.2.7)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -56,6 +57,7 @@ DEPENDENCIES
   formtastic (= 0.9.1)
   inherited_resources (= 0.9.2)
   mini_magick
+  mysql (= 2.7)
   mysql2 (= 0.2.7)
   newrelic_rpm (= 2.9.4)
   rails (= 2.3.9)

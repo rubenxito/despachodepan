@@ -31,7 +31,7 @@
         </td>
 
         <td><%= image_tag card.main_image.public_filename(:thumb)  unless card.main_image.nil? %></td>
-        <td><%= image_tag card.main_slide.image.public_filename(:thumb)  unless card.main_slide.nil? %><br/>
+        <td><%= image_tag card.main_slide.image.public_filename(:thumb)  unless card.main_slide.nil? or card.main_slide.image.nil? %><br/>
           total: <%= card.slides.size %> fotos
         </td>
 
